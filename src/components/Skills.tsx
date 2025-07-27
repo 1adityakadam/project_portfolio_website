@@ -37,9 +37,11 @@ export function Skills() {
   ]
 
   const certifications = [
-    "Associate Python Developer",
-    "SQL Fundamentals", 
-    "Accenture Virtual Internship"
+    "Python for Machine Learning Artificial Intelligence and Deep Learning - IIT Kanpur",
+    "Machine Learning Specialization - Deeplearning.ai",
+    "Associate Python Developer - Datacamp",
+    "SQL Fundamentals - Datacamp", 
+    "Accenture Virtual Internship - Accenture"
   ]
 
   return (

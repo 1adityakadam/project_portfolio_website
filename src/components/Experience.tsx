@@ -8,7 +8,7 @@ export function Experience() {
       title: "Data Analyst",
       company: "Indiana University School of Education",
       location: "Bloomington, IN, USA",
-      period: "Apr 2025 – Present",
+      period: "Apr 2025 – June 2025",
       description: [
         "Performed statistical analysis of education metrics using Python (pandas) to uncover ancestry trends",
         "Designed HTML and CSS based front-end visualization for non-technical stakeholders",
