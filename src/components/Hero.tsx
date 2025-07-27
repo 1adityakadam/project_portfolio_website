@@ -10,14 +10,17 @@ export function Hero() {
         <div className="max-w-4xl mx-auto text-center">
           <div className="space-y-6">
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-              <span className="block">Aditya</span>
-              <span className="block bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-                Kadam
+              <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+                Aditya Kadam
               </span>
             </h1>
             
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Data Scientist & Analytics Expert. Transforming complex data into actionable insights with 2+ years of experience in 
+              Data Scientist & Analytics Expert
+            </p>
+            
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Transforming complex data into actionable insights with 2+ years of experience in 
               machine learning, statistical analysis, and interactive dashboard development.
             </p>
             
