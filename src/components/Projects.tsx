@@ -6,9 +6,9 @@ import { ExternalLink, Github, BarChart3, Database, TrendingUp, Users, Calendar,
 export function Projects() {
   const projects = [
     {
-      title: "U.S. Higher Education Institution Lineage Explorer",
+      title: "Ancestry Grid for Carnegie Classification of Institutions of Higher Education",
       description: "A concise, interactive tool for exploring the historical lineage of U.S. higher education institutions using Carnegie Classification data from 1973–2021.",
-      longDescription: "This comprehensive data visualization tool provides deep insights into the evolution of higher education institutions across five decades.",
+      longDescription: "This comprehensive data visualization tool provides deep insights into the evolution of higher education institutions across five decades, with efficient data partitioning and incremental rendering.",
       features: [
         {
           icon: <Search className="w-4 h-4" />,
@@ -31,6 +31,13 @@ export function Projects() {
           description: "Data partitioned into 10 institute name chunks (~60,000 rows) for fast, responsive UI"
         }
       ],
+      dataStructure: [
+        "Institution names (current and historical)",
+        "Carnegie classification by year",
+        "Merger/absorption events and years",
+        "Successor/predecessor links",
+        "Degree-granting status"
+      ],
       classifications: [
         "Doctoral Universities (R1, R2, R3)",
         "Master's Colleges & Universities",
@@ -42,61 +49,121 @@ export function Projects() {
       technologies: ["Python", "Pandas", "Interactive Dashboards", "Data Visualization", "Carnegie Classification"],
       github: "https://github.com/1adityakadam",
       demo: "#",
-      image: "/lovable-uploads/03bc8d04-9fea-4cf3-8a55-0b284c26dc68.png"
+      image: "/lovable-uploads/b7cc5e19-b229-483c-8f53-e52201f72fbb.png"
     },
     {
-      title: "IndyCo Analytics Dashboard",
-      description: "Comprehensive Power BI dashboard analyzing USDA's $5.06B OTP data trends and route efficiency for transportation optimization.",
+      title: "USDA Food Distribution Program Analysis",
+      description: "Comprehensive analysis of USDA Food and Nutrition Service's food distribution programs, focusing on State of Origin data for USDA Foods products from FY11 to FY23.",
+      longDescription: "This project provides insights into purchasing trends and highlights where products were processed and packaged, supporting local agricultural markets with strategic procurement optimization.",
+      features: [
+        {
+          icon: <TrendingUp className="w-4 h-4" />,
+          title: "Trend Analysis",
+          description: "Identify top-selling USDA Foods and understand slow-moving goods over time"
+        },
+        {
+          icon: <Database className="w-4 h-4" />,
+          title: "Multi-dimensional Filtering",
+          description: "Filter by year (FY11–FY23), region, and congregation size for detailed insights"
+        },
+        {
+          icon: <BarChart3 className="w-4 h-4" />,
+          title: "State-level Analytics",
+          description: "Detailed state information including purchase volumes, values, and product variety"
+        },
+        {
+          icon: <Users className="w-4 h-4" />,
+          title: "Strategic Planning",
+          description: "Support local agriculture markets and optimize procurement strategies"
+        }
+      ],
+      filters: [
+        "Year (FY11–FY23)",
+        "Region (Central, East, West)",
+        "Number of Congregations (0k–1k, 1k–3k, 3k–6k, 6k+)"
+      ],
+      insights: [
+        "Top Seller: Most purchased product in pounds",
+        "High Demand Goods: Products with consistently high purchase volume",
+        "Slow Mover Goods: Products with low purchase frequency",
+        "Percentage of Purchased Quantity and Value by state",
+        "Total Variety of Goods Purchased per state"
+      ],
+      technologies: ["Python", "Tableau", "Pandas", "Data Visualization", "USDA APIs"],
+      period: "FY11 - FY23",
+      image: "/lovable-uploads/c5629d05-81cb-416b-b75d-50008bfac0b1.png"
+    },
+    {
+      title: "Uber Data Analytics End-to-End Project",
+      description: "Comprehensive data analytics project using TLC Trip Record Data from November 2024, implementing end-to-end pipeline with Google BigQuery and Looker Studio.",
+      longDescription: "Real-time data pipeline and visualization system for NYC Yellow Taxi trip analysis, featuring structured fact and dimension tables with cloud-based processing and interactive dashboards.",
+      features: [
+        {
+          icon: <Database className="w-4 h-4" />,
+          title: "Data Modeling",
+          description: "Transformed raw parquet data into structured fact and dimension tables"
+        },
+        {
+          icon: <TrendingUp className="w-4 h-4" />,
+          title: "Cloud Pipeline",
+          description: "Implemented Mage-AI for ETL with Google Cloud Storage and BigQuery integration"
+        },
+        {
+          icon: <BarChart3 className="w-4 h-4" />,
+          title: "Interactive Dashboard",
+          description: "Real-time visualization in Google Looker Studio with comprehensive trip analytics"
+        },
+        {
+          icon: <Users className="w-4 h-4" />,
+          title: "Performance Optimization",
+          description: "Efficient querying and data partitioning for fast response times"
+        }
+      ],
+      dataSource: [
+        "TLC Trip Record Data (November 2024)",
+        "NYC Taxi and Limousine Commission",
+        "Yellow Taxi Trip Records via TPEP/LPEP programs"
+      ],
+      technologies: ["Python", "Mage-AI", "Google BigQuery", "Google Looker Studio", "Google Cloud Storage", "Pandas", "NumPy"],
+      period: "Nov 2024",
+      image: "/lovable-uploads/ef29be68-9fb4-4c32-aa90-34cad5f4e864.png"
+    },
+    {
+      title: "IndyGo On-Time Performance Analysis",
+      description: "Comprehensive Power BI dashboard analyzing IndyGo's on-time performance by measuring the percentage of trips operating within scheduled time thresholds.",
+      longDescription: "Service reliability analysis dashboard providing insights into OTP trends across timeframes, route categories, and individual routes, serving transit system optimization goals.",
       features: [
         {
           icon: <BarChart3 className="w-4 h-4" />,
           title: "Performance Metrics",
-          description: "Real-time analysis of route efficiency and data trends"
+          description: "Overall monthly on-time performance by day of service (Weekday, Saturday, Sunday)"
         },
         {
           icon: <TrendingUp className="w-4 h-4" />,
-          title: "Trend Analysis",
-          description: "Historical data visualization with predictive insights"
-        }
-      ],
-      technologies: ["Python", "Tableau", "NumPy", "Pandas", "Power BI"],
-      period: "Mar 2025 - Apr 2025"
-    },
-    {
-      title: "USDA Food Distribution Dashboard",
-      description: "Advanced Tableau dashboard analyzing USDA's food distribution data with multi-dimensional filtering and trend analysis.",
-      features: [
+          title: "Route Analysis",
+          description: "OTP variation across route categories, service frequency, and rapid transit"
+        },
+        {
+          icon: <Calendar className="w-4 h-4" />,
+          title: "Temporal Insights",
+          description: "OTP trends over 12 months with peak vs non-peak hour comparisons"
+        },
         {
           icon: <Database className="w-4 h-4" />,
-          title: "Data Processing",
-          description: "Processed and analyzed large-scale USDA datasets"
-        },
-        {
-          icon: <Users className="w-4 h-4" />,
-          title: "Stakeholder Insights",
-          description: "Enabled faster decision-making through interactive visualizations"
+          title: "Real-time Data",
+          description: "GPS trackers and Automatic Passenger Counters (APCs) integration"
         }
       ],
-      technologies: ["Python", "Tableau", "NumPy", "Pandas"],
-      period: "Feb 2025 - Mar 2025"
-    },
-    {
-      title: "Uber Data Analytics Dashboard",
-      description: "Real-time data pipeline and visualization system for NYC taxi trip analysis using Mage-AI and modern data tools.",
-      features: [
-        {
-          icon: <TrendingUp className="w-4 h-4" />,
-          title: "Real-time Processing",
-          description: "Constructed resilient data pipeline merging 10,000+ daily NYC taxi trip records"
-        },
-        {
-          icon: <BarChart3 className="w-4 h-4" />,
-          title: "Performance Optimization",
-          description: "Enabled 40% faster query execution through partitioned fact tables"
-        }
+      businessQuestions: [
+        "Monthly on-time performance by day of service",
+        "OTP variation across route categories and service frequency",
+        "OTP trends for specific routes over 12 months",
+        "OTP changes across different time frames",
+        "Peak vs non-peak hour performance differences"
       ],
-      technologies: ["Python", "Mage-AI", "BigQuery", "Looker Studio", "Pandas", "NumPy"],
-      period: "Jan 2025 - Feb 2025"
+      technologies: ["Power BI", "Python", "GPS Data Integration", "APC Systems", "Data Analytics"],
+      period: "12-month analysis",
+      image: "/lovable-uploads/8fdc002a-18d3-4999-81b4-79369449b3b5.png"
     }
   ]
 
@@ -173,6 +240,20 @@ export function Projects() {
                   </div>
                 )}
                 
+                {project.dataStructure && (
+                  <div className="mb-4">
+                    <p className="text-sm font-medium mb-2">Data Structure:</p>
+                    <ul className="text-xs text-muted-foreground space-y-1">
+                      {project.dataStructure.map((item, idx) => (
+                        <li key={idx} className="flex items-center">
+                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></div>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
                 {project.classifications && (
                   <div className="mb-4">
                     <p className="text-sm font-medium mb-2">Classification Categories:</p>
@@ -181,6 +262,62 @@ export function Projects() {
                         <li key={idx} className="flex items-center">
                           <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></div>
                           {cat}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {project.filters && (
+                  <div className="mb-4">
+                    <p className="text-sm font-medium mb-2">Available Filters:</p>
+                    <ul className="text-xs text-muted-foreground space-y-1">
+                      {project.filters.map((filter, idx) => (
+                        <li key={idx} className="flex items-center">
+                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></div>
+                          {filter}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {project.insights && (
+                  <div className="mb-4">
+                    <p className="text-sm font-medium mb-2">Key Insights:</p>
+                    <ul className="text-xs text-muted-foreground space-y-1">
+                      {project.insights.map((insight, idx) => (
+                        <li key={idx} className="flex items-center">
+                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></div>
+                          {insight}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {project.dataSource && (
+                  <div className="mb-4">
+                    <p className="text-sm font-medium mb-2">Data Sources:</p>
+                    <ul className="text-xs text-muted-foreground space-y-1">
+                      {project.dataSource.map((source, idx) => (
+                        <li key={idx} className="flex items-center">
+                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></div>
+                          {source}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {project.businessQuestions && (
+                  <div className="mb-4">
+                    <p className="text-sm font-medium mb-2">Business Questions Addressed:</p>
+                    <ul className="text-xs text-muted-foreground space-y-1">
+                      {project.businessQuestions.map((question, idx) => (
+                        <li key={idx} className="flex items-center">
+                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></div>
+                          {question}
                         </li>
                       ))}
                     </ul>
