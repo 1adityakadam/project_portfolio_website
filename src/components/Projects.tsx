@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ExternalLink, Github, BarChart3, Database, TrendingUp, Users, Calendar, Search } from "lucide-react"
+import { ExternalLink, Github, BarChart3, Database, TrendingUp, Users, Calendar, Search, Target, Trophy, Activity } from "lucide-react"
 
 export function Projects() {
   const projects = [
@@ -164,6 +164,67 @@ export function Projects() {
       technologies: ["Power BI", "Python", "GPS Data Integration", "APC Systems", "Data Analytics"],
       period: "12-month analysis",
       image: "/lovable-uploads/8fdc002a-18d3-4999-81b4-79369449b3b5.png"
+    },
+    {
+      title: "Sports Analytics: Cricket Data Insights",
+      description: "Comprehensive analysis of T20 Cricket World Cup 2022 focused on strategic team selection and player performance evaluation for England's championship victory against Pakistan.",
+      longDescription: "This analysis aimed to build a balanced squad capable of scoring 180 runs regularly while defending targets of 150 runs, integrating practical strategy with data-driven evaluation through interactive Power BI dashboards.",
+      features: [
+        {
+          icon: <Target className="w-4 h-4" />,
+          title: "Strategic Team Selection",
+          description: "Build balanced squad for scoring 180+ runs and defending 150+ targets"
+        },
+        {
+          icon: <Database className="w-4 h-4" />,
+          title: "Web Scraping Pipeline",
+          description: "Data collection from ESPNcricinfo using BrightData, converted to structured JSON format"
+        },
+        {
+          icon: <BarChart3 className="w-4 h-4" />,
+          title: "Interactive Dashboard",
+          description: "Power BI visualizations with hover-enabled player metrics and detailed insights"
+        },
+        {
+          icon: <Users className="w-4 h-4" />,
+          title: "Player Role Classification",
+          description: "Defined positions using metrics like average, strike rate, and boundary-scoring ability"
+        },
+        {
+          icon: <Activity className="w-4 h-4" />,
+          title: "Performance Analytics",
+          description: "Comprehensive batting and bowling statistics with match history analysis"
+        },
+        {
+          icon: <Trophy className="w-4 h-4" />,
+          title: "Final XI Selection",
+          description: "Complete team selection summary with batting and bowling achievements"
+        }
+      ],
+      dataSource: [
+        "ESPNcricinfo T20 World Cup 2022 match data",
+        "Player statistics and match histories",
+        "Team performance metrics and outcomes"
+      ],
+      playerRoles: [
+        "Openers: Focus on strike rate and boundary percentage",
+        "Power Hitters: Emphasis on six-hitting ability and acceleration",
+        "Middle Order: Consistency metrics and pressure situation performance",
+        "Finishers: Death overs performance and match-winning capability",
+        "All Rounders: Balanced batting and bowling contributions",
+        "Fast Bowlers: Wicket-taking ability and economy rate analysis"
+      ],
+      dashboardFeatures: [
+        "Interactive player row hover for detailed metrics",
+        "Historical performance analysis by position",
+        "Match outcome correlation with player selection",
+        "Team composition optimization tools",
+        "Player comparison and ranking systems"
+      ],
+      technologies: ["Power BI", "Python", "Pandas", "BrightData", "Web Scraping", "JSON Processing", "Power Query", "DAX"],
+      period: "T20 World Cup 2022",
+      github: "https://github.com/1adityakadam",
+      image: "/lovable-uploads/c0b3cfa2-690d-4800-ac8a-0162be93af29.png"
     }
   ]
 
@@ -318,6 +379,34 @@ export function Projects() {
                         <li key={idx} className="flex items-center">
                           <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></div>
                           {question}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {project.playerRoles && (
+                  <div className="mb-4">
+                    <p className="text-sm font-medium mb-2">Player Role Classifications:</p>
+                    <ul className="text-xs text-muted-foreground space-y-1">
+                      {project.playerRoles.map((role, idx) => (
+                        <li key={idx} className="flex items-center">
+                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></div>
+                          {role}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {project.dashboardFeatures && (
+                  <div className="mb-4">
+                    <p className="text-sm font-medium mb-2">Dashboard Features:</p>
+                    <ul className="text-xs text-muted-foreground space-y-1">
+                      {project.dashboardFeatures.map((feature, idx) => (
+                        <li key={idx} className="flex items-center">
+                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></div>
+                          {feature}
                         </li>
                       ))}
                     </ul>
