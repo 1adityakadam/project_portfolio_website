@@ -91,6 +91,7 @@ export function Projects() {
       ],
       technologies: ["Python", "Tableau", "Pandas", "Data Visualization", "USDA APIs"],
       period: "FY11 - FY23",
+      github: "https://github.com/1adityakadam",
       image: "/lovable-uploads/c5629d05-81cb-416b-b75d-50008bfac0b1.png"
     },
     {
@@ -126,6 +127,7 @@ export function Projects() {
       ],
       technologies: ["Python", "Mage-AI", "Google BigQuery", "Google Looker Studio", "Google Cloud Storage", "Pandas", "NumPy"],
       period: "Nov 2024",
+      github: "https://github.com/1adityakadam",
       image: "/lovable-uploads/ef29be68-9fb4-4c32-aa90-34cad5f4e864.png"
     },
     {
@@ -163,6 +165,7 @@ export function Projects() {
       ],
       technologies: ["Power BI", "Python", "GPS Data Integration", "APC Systems", "Data Analytics"],
       period: "12-month analysis",
+      github: "https://github.com/1adityakadam",
       image: "/lovable-uploads/8fdc002a-18d3-4999-81b4-79369449b3b5.png"
     },
     {
