@@ -48,7 +48,6 @@ export function Projects() {
       ],
       technologies: ["Python", "Pandas", "Interactive Dashboards", "Data Visualization", "Carnegie Classification"],
       github: "https://github.com/1adityakadam",
-      demo: "#",
       image: "/lovable-uploads/b7cc5e19-b229-483c-8f53-e52201f72fbb.png"
     },
     {
@@ -263,24 +262,17 @@ export function Projects() {
                       <p className="text-sm text-muted-foreground mt-1">{project.period}</p>
                     )}
                   </div>
-                  {(project.github || project.demo) && (
-                    <div className="flex gap-2">
-                      {project.github && (
+                   {(project.github) && (
+                     <div className="flex gap-2">
+                       {project.github && (
                         <Button variant="ghost" size="sm" asChild>
                           <a href={project.github} target="_blank" rel="noopener noreferrer">
                             <Github className="w-4 h-4" />
                           </a>
-                        </Button>
-                      )}
-                      {project.demo && (
-                        <Button variant="ghost" size="sm" asChild>
-                          <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                            <ExternalLink className="w-4 h-4" />
-                          </a>
-                        </Button>
-                      )}
-                    </div>
-                  )}
+                         </Button>
+                       )}
+                     </div>
+                   )}
                 </div>
                 <CardDescription className="text-base">
                   {project.description}
