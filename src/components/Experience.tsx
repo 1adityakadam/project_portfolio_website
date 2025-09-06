@@ -10,9 +10,10 @@ export function Experience() {
       location: "Bloomington, IN, USA",
       period: "Apr 2025 – June 2025",
       description: [
-        "Performed statistical analysis of education metrics using Python (pandas) to uncover ancestry trends",
-        "Designed HTML and CSS based front-end visualization for non-technical stakeholders",
-        "Monitored data quality and performed root-cause analysis on inconsistencies, data cleaning checks to improve analysis"
+        "Conducted a historical analysis of higher-education metrics using Python (pandas) and SQL, uncovering institutional ancestry trends across 64,000+ records.",
+        "Engineered and deployed an interactive web-based visualization enabling non-technical stakeholders to explore 100+ institutional mergers and absorptions.",
+        "Optimized performance by implementing data partitioning, reducing response time by 30% through selective loading of 10 institutions at a time.",
+        "Enhanced data integrity and code quality by executing rigorous cleansing checks and data validation, restructuring scripts, reducing errors by 15% and improving reliability by 20%."
       ],
       skills: ["Python", "Pandas", "Statistical Analysis", "HTML/CSS", "Data Visualization"]
     },
