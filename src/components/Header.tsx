@@ -10,7 +10,6 @@ export function Header() {
           <h1 className="text-xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
             Aditya Kadam
           </h1>
-          <span className="text-sm text-muted-foreground">Data Scientist</span>
         </div>
         
         <nav className="hidden md:flex items-center space-x-6">

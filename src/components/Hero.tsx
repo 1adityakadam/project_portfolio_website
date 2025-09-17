@@ -1,64 +1,84 @@
 import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import { ArrowDown, Download, ExternalLink } from "lucide-react"
+import { ExternalLink } from "lucide-react"
+import { useEffect, useRef } from "react"
 
 export function Hero() {
-  return (
-    <section className="py-20 md:py-32 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5"></div>
-      <div className="container relative">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="space-y-6">
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-              <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-                Aditya Kadam
-              </span>
-            </h1>
-            
-            
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Transforming complex data into actionable insights with 2+ years of experience in 
-              machine learning, statistical analysis, and interactive dashboard development.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-              <Button size="lg" className="group" asChild>
-                <a href="#projects">
-                  View My Projects
-                  <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </a>
-              </Button>
-              <Button variant="outline" size="lg" asChild>
-                <a href="mailto:askadam@iu.edu">
-                  Get In Touch
-                </a>
-              </Button>
-            </div>
-          </div>
-          
-          <div className="pt-20">
-            <Card className="p-8 bg-gradient-to-br from-card to-card/50 border-border/50 shadow-lg">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                <div>
-                  <div className="text-3xl font-bold text-primary">2+</div>
-                  <div className="text-sm text-muted-foreground">Years Experience</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-primary">5+</div>
-                  <div className="text-sm text-muted-foreground">Major Projects</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-primary">MS</div>
-                  <div className="text-sm text-muted-foreground">Data Science Degree</div>
-                </div>
-              </div>
-            </Card>
-          </div>
-        </div>
-      </div>
+  const heroRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!heroRef.current) return
       
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <ArrowDown className="h-6 w-6 text-muted-foreground" />
+      const { clientX, clientY } = e
+      const { innerWidth, innerHeight } = window
+      
+      const x = (clientX / innerWidth) * 100
+      const y = (clientY / innerHeight) * 100
+      
+      heroRef.current.style.background = `
+        radial-gradient(circle at ${x}% ${y}%, 
+          hsl(var(--primary) / 0.08) 0%, 
+          transparent 50%),
+        hsl(var(--background))
+      `
+    }
+
+    document.addEventListener('mousemove', handleMouseMove)
+    return () => document.removeEventListener('mousemove', handleMouseMove)
+  }, [])
+
+  return (
+    <section 
+      ref={heroRef}
+      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-4"
+      style={{
+        background: 'hsl(var(--background))'
+      }}
+    >
+      {/* Large Typography Name */}
+      <div className="text-center mb-8">
+        <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tight leading-none">
+          <span className="text-primary block">ADITYA</span>
+          <span className="text-primary block">KADAM</span>
+        </h1>
+      </div>
+
+      {/* Description */}
+      <div className="max-w-4xl text-center mb-12">
+        <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+          Transforming complex data into actionable insights with 2+ years of experience in 
+          machine learning, statistical analysis, and interactive dashboard development.
+        </p>
+      </div>
+
+      {/* Call to Action Button */}
+      <div className="mb-16">
+        <Button 
+          size="lg" 
+          className="group px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/20" 
+          asChild
+        >
+          <a href="#experience">
+            View My Projects
+            <ExternalLink className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+          </a>
+        </Button>
+      </div>
+
+      {/* Stats Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl w-full">
+        <div className="text-center p-6 rounded-lg border border-border/50 bg-card/50 backdrop-blur-sm">
+          <div className="text-3xl font-bold text-primary mb-2">2+</div>
+          <div className="text-sm text-muted-foreground">Years Experience</div>
+        </div>
+        <div className="text-center p-6 rounded-lg border border-border/50 bg-card/50 backdrop-blur-sm">
+          <div className="text-3xl font-bold text-primary mb-2">5+</div>
+          <div className="text-sm text-muted-foreground">Major Projects</div>
+        </div>
+        <div className="text-center p-6 rounded-lg border border-border/50 bg-card/50 backdrop-blur-sm">
+          <div className="text-3xl font-bold text-primary mb-2">MS</div>
+          <div className="text-sm text-muted-foreground">Data Science Degree</div>
+        </div>
       </div>
     </section>
   )
