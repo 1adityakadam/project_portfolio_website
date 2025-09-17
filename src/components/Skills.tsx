@@ -48,7 +48,7 @@ export function Skills() {
     <section id="skills" className="py-20">
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Skills & Expertise</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Skills & Expertise</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Technical proficiencies spanning the entire data science workflow
           </p>
