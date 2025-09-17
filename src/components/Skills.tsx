@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Code, Database, BarChart3, Wrench, Award } from "lucide-react"
+import { CursorReactiveSection } from "@/components/CursorReactiveSection"
 
 export function Skills() {
   const skillCategories = [
@@ -45,7 +46,7 @@ export function Skills() {
   ]
 
   return (
-    <section id="skills" className="py-20">
+    <CursorReactiveSection id="skills" className="py-20">
       <div className="container">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Skills & Expertise</h2>
@@ -91,7 +92,7 @@ export function Skills() {
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {certifications.map((cert, index) => (
-                  <div key={index} className="flex items-center gap-3 p-4 bg-card rounded-lg border border-border/50">
+                  <div key={index} className="flex items-center gap-3 p-4 bg-card rounded-lg border border-border/50 group hover:animate-none animate-scroll-left hover:scale-105 transition-all duration-300" style={{animationDelay: `${index * 1}s`}}>
                     <div className="w-2 h-2 bg-primary rounded-full"></div>
                     <span className="font-medium">{cert}</span>
                   </div>
@@ -101,6 +102,6 @@ export function Skills() {
           </Card>
         </div>
       </div>
-    </section>
+    </CursorReactiveSection>
   )
 }

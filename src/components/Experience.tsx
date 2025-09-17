@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Calendar, MapPin } from "lucide-react"
+import { CursorReactiveSection } from "@/components/CursorReactiveSection"
 
 export function Experience() {
   const experiences = [
@@ -35,10 +36,10 @@ export function Experience() {
   ]
 
   return (
-    <section id="experience" className="py-20">
+    <CursorReactiveSection id="experience" className="py-20">
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Professional Experience</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Professional Experience</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Driving data-driven decisions across education and consulting sectors
           </p>
@@ -88,6 +89,6 @@ export function Experience() {
           ))}
         </div>
       </div>
-    </section>
+    </CursorReactiveSection>
   )
 }

@@ -46,15 +46,7 @@ export function Hero() {
       {/* Description */}
       <div className="max-w-4xl text-center mb-12">
         <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-          I'm a Data Analyst and MS Data Science candidate at Indiana University, with 2+ years of experience applying analytics in supply chain and operations, and hands-on expertise building end-to-end data solutions.
-        </p>
-        <br />
-        <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-          At Nice Consultancy, I automated procurement workflows with Python and Excel, developed Tableau/Power BI dashboards for vendor KPIs, and improved reporting accuracy by 20% through data cleaning and standardization. Most recently, as an Analytics Engineer at IU, I analyzed 64K+ higher-education records and built a web-based dashboard that improved stakeholder decision-making by 15%.
-        </p>
-        <br />
-        <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-          I thrive at the intersection of Python, SQL, and BI tools (Tableau, Power BI, Looker), with strong experience in ETL, forecasting, and statistical modeling. My goal is to drive actionable insights and business value through data-driven solutions.
+          I'm a Data Analyst and MS Data Science candidate at Indiana University with 2+ years of hands-on analytics in supply chain and operations. I've automated procurement workflows with Python/Excel, built Tableau & Power BI dashboards for vendor KPIs, and improved reporting accuracy by 20%. Recently, as an Analytics Engineer at IU, I analyzed 64K+ higher-ed records and delivered a web-based dashboard that improved decision-making by 15%. I bring strong expertise across Python, SQL, Tableau, Power BI, Looker, ETL, and forecasting with one goal: turning data into business value and strategic insight.
         </p>
       </div>
 
@@ -74,15 +66,15 @@ export function Hero() {
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl w-full">
-        <div className="text-center p-6 rounded-lg border border-border/50 bg-card/50 backdrop-blur-sm">
+        <div className="text-center p-6 rounded-lg border border-border/50 bg-card/50 backdrop-blur-sm group hover:animate-none animate-scroll-left hover:scale-105 transition-all duration-300">
           <div className="text-3xl font-bold text-primary mb-2">2+</div>
           <div className="text-sm text-muted-foreground">Years Experience</div>
         </div>
-        <div className="text-center p-6 rounded-lg border border-border/50 bg-card/50 backdrop-blur-sm">
+        <div className="text-center p-6 rounded-lg border border-border/50 bg-card/50 backdrop-blur-sm group hover:animate-none animate-scroll-left hover:scale-105 transition-all duration-300" style={{animationDelay: '2s'}}>
           <div className="text-3xl font-bold text-primary mb-2">5+</div>
           <div className="text-sm text-muted-foreground">Major Projects</div>
         </div>
-        <div className="text-center p-6 rounded-lg border border-border/50 bg-card/50 backdrop-blur-sm">
+        <div className="text-center p-6 rounded-lg border border-border/50 bg-card/50 backdrop-blur-sm group hover:animate-none animate-scroll-left hover:scale-105 transition-all duration-300" style={{animationDelay: '4s'}}>
           <div className="text-3xl font-bold text-primary mb-2">MS</div>
           <div className="text-sm text-muted-foreground">Data Science Degree</div>
         </div>

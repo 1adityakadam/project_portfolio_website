@@ -1,10 +1,11 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Github, Linkedin, Mail, Send } from "lucide-react"
+import { CursorReactiveSection } from "@/components/CursorReactiveSection"
 
 export function Contact() {
   return (
-    <section id="contact" className="py-20">
+    <CursorReactiveSection id="contact" className="py-20">
       <div className="container">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Let's Connect</h2>
@@ -55,6 +56,6 @@ export function Contact() {
           </Card>
         </div>
       </div>
-    </section>
+    </CursorReactiveSection>
   )
 }
