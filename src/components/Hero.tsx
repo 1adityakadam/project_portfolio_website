@@ -57,7 +57,7 @@ export function Hero() {
           className="group px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/20" 
           asChild
         >
-          <a href="#experience">
+          <a href="#projects">
             View My Projects
             <ExternalLink className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
           </a>
