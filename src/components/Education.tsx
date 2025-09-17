@@ -1,7 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { GraduationCap, Calendar, MapPin, BookOpen } from "lucide-react"
-import { CursorReactiveSection } from "@/components/CursorReactiveSection"
 
 export function Education() {
   const education = [
@@ -40,10 +39,10 @@ export function Education() {
   ]
 
   return (
-    <CursorReactiveSection id="education" className="py-20 bg-muted/30">
+    <section id="education" className="py-20 bg-muted/30">
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Education</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Education</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Academic foundation in data science and engineering principles
           </p>
@@ -104,6 +103,6 @@ export function Education() {
           ))}
         </div>
       </div>
-    </CursorReactiveSection>
+    </section>
   )
 }

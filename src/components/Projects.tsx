@@ -2,7 +2,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Github, BarChart3, Database, TrendingUp, Users, Calendar, Search, Target, Trophy, Activity } from "lucide-react"
-import { CursorReactiveSection } from "@/components/CursorReactiveSection"
 
 export function Projects() {
   const projects = [
@@ -232,7 +231,7 @@ export function Projects() {
   ]
 
   return (
-    <CursorReactiveSection id="projects" className="py-20 bg-muted/30">
+    <section id="projects" className="py-20 bg-muted/30">
       <div className="container">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Featured Projects</h2>
@@ -421,6 +420,6 @@ export function Projects() {
           ))}
         </div>
       </div>
-    </CursorReactiveSection>
+    </section>
   )
 }
