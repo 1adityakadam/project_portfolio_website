@@ -46,15 +46,7 @@ export function Hero() {
       {/* Description */}
       <div className="max-w-4xl text-center mb-12">
         <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-          I'm a Data Analyst and MS Data Science candidate at Indiana University, with 2+ years of experience applying analytics in supply chain and operations, and hands-on expertise building end-to-end data solutions.
-        </p>
-        <br />
-        <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-          At Nice Consultancy, I automated procurement workflows with Python and Excel, developed Tableau/Power BI dashboards for vendor KPIs, and improved reporting accuracy by 20% through data cleaning and standardization. Most recently, as an Analytics Engineer at IU, I analyzed 64K+ higher-education records and built a web-based dashboard that improved stakeholder decision-making by 15%.
-        </p>
-        <br />
-        <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-          I thrive at the intersection of Python, SQL, and BI tools (Tableau, Power BI, Looker), with strong experience in ETL, forecasting, and statistical modeling. My goal is to drive actionable insights and business value through data-driven solutions.
+         I’m Aditya Kadam — a Data Analyst and MS Data Science candidate passionate about transforming raw data into business insights, with 2+ years of experience in supply chain, operations, and analytics engineering.
         </p>
       </div>
 
