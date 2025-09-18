@@ -45,7 +45,7 @@ export function Skills() {
   ]
 
   return (
-    <section id="skills" className="py-20">
+    <section id="skills" className="py-20 glass-section">
       <div className="container">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Skills & Expertise</h2>
@@ -57,7 +57,7 @@ export function Skills() {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {skillCategories.map((category, index) => (
-              <Card key={index} className="group hover:shadow-lg transition-all duration-300 border-border/50">
+              <Card key={index} className="group glass hover:bg-accent/10 transition-all duration-300 hover:scale-105">
                 <CardHeader className="pb-4">
                   <CardTitle className="flex items-center gap-3 text-lg">
                     <div className="text-primary">{category.icon}</div>
@@ -70,7 +70,7 @@ export function Skills() {
                       <Badge 
                         key={idx} 
                         variant="secondary" 
-                        className="text-xs hover:bg-primary hover:text-primary-foreground transition-colors cursor-default"
+                        className="text-xs hover:bg-accent hover:text-accent-foreground transition-colors cursor-default"
                       >
                         {skill}
                       </Badge>
@@ -81,7 +81,7 @@ export function Skills() {
             ))}
           </div>
 
-          <Card className="bg-gradient-to-br from-primary/5 to-accent/5 border-border/50">
+          <Card className="glass hover:bg-accent/10 transition-all duration-300">
             <CardHeader>
               <CardTitle className="flex items-center gap-3 text-xl">
                 <Award className="w-6 h-6 text-primary" />
@@ -91,7 +91,7 @@ export function Skills() {
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {certifications.map((cert, index) => (
-                  <div key={index} className="flex items-center gap-3 p-4 bg-card rounded-lg border border-border/50">
+                  <div key={index} className="flex items-center gap-3 p-4 glass hover:bg-accent/10 transition-all duration-300 hover:scale-105 rounded-lg animate-slide-right hover:animate-none">
                     <div className="w-2 h-2 bg-primary rounded-full"></div>
                     <span className="font-medium">{cert}</span>
                   </div>

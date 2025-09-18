@@ -35,10 +35,10 @@ export function Experience() {
   ]
 
   return (
-    <section id="experience" className="py-20">
+    <section id="experience" className="py-20 glass-section">
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Professional Experience</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Professional Experience</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Driving data-driven decisions across education and consulting sectors
           </p>
@@ -46,7 +46,7 @@ export function Experience() {
 
         <div className="max-w-4xl mx-auto space-y-8">
           {experiences.map((exp, index) => (
-            <Card key={index} className="group hover:shadow-lg transition-all duration-300 border-border/50">
+            <Card key={index} className="group glass hover:bg-accent/10 transition-all duration-300 hover:scale-[1.02]">
               <CardHeader>
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                   <div>

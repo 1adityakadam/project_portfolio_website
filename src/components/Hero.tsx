@@ -37,7 +37,7 @@ export function Hero() {
     >
       {/* Large Typography Name */}
       <div className="text-center mb-8">
-        <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tight leading-none">
+        <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tight leading-none font-playfair">
           <span className="text-primary block">ADITYA</span>
           <span className="text-primary block">KADAM</span>
         </h1>
@@ -66,15 +66,15 @@ export function Hero() {
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl w-full">
-        <div className="text-center p-6 rounded-lg border border-border/50 bg-card/50 backdrop-blur-sm">
+        <div className="text-center p-6 rounded-lg glass hover:bg-accent/10 transition-all duration-300 hover:scale-105">
           <div className="text-3xl font-bold text-primary mb-2">2+</div>
           <div className="text-sm text-muted-foreground">Years Experience</div>
         </div>
-        <div className="text-center p-6 rounded-lg border border-border/50 bg-card/50 backdrop-blur-sm">
+        <div className="text-center p-6 rounded-lg glass hover:bg-accent/10 transition-all duration-300 hover:scale-105">
           <div className="text-3xl font-bold text-primary mb-2">5+</div>
           <div className="text-sm text-muted-foreground">Major Projects</div>
         </div>
-        <div className="text-center p-6 rounded-lg border border-border/50 bg-card/50 backdrop-blur-sm">
+        <div className="text-center p-6 rounded-lg glass hover:bg-accent/10 transition-all duration-300 hover:scale-105">
           <div className="text-3xl font-bold text-primary mb-2">MS</div>
           <div className="text-sm text-muted-foreground">Data Science Degree</div>
         </div>

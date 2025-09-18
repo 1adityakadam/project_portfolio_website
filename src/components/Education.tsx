@@ -39,10 +39,10 @@ export function Education() {
   ]
 
   return (
-    <section id="education" className="py-20">
+    <section id="education" className="py-20 glass-section">
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Education</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Education</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Academic foundation in data science and engineering principles
           </p>
@@ -50,7 +50,7 @@ export function Education() {
 
         <div className="max-w-4xl mx-auto space-y-8">
           {education.map((edu, index) => (
-            <Card key={index} className="group hover:shadow-lg transition-all duration-300 border-border/50">
+            <Card key={index} className="group glass hover:bg-accent/10 transition-all duration-300 hover:scale-[1.02]">
               <CardHeader>
                 <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                   <div className="flex items-start gap-4">

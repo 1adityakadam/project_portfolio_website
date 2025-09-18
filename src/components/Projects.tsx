@@ -231,7 +231,7 @@ export function Projects() {
   ]
 
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" className="py-20 glass-section">
       <div className="container">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Featured Projects</h2>
@@ -242,7 +242,7 @@ export function Projects() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
           {projects.map((project, index) => (
-            <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-border/50 overflow-hidden">
+            <Card key={index} className="group glass hover:bg-accent/10 transition-all duration-300 hover:scale-[1.02] overflow-hidden">
               {project.image && (
                 <div className="aspect-video overflow-hidden bg-muted">
                   <img 
