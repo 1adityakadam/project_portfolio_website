@@ -10,7 +10,7 @@ export function Header() {
           {/* Logo placeholder - removed name */}
         </div>
         
-        <nav className="hidden md:flex items-center space-x-6 absolute left-1/2 transform -translate-x-1/2" style={{ marginLeft: '35px' }}>
+        <nav className="hidden md:flex items-center space-x-6 absolute left-1/2 transform -translate-x-1/2" style={{ marginLeft: '20px' }}>
           <a href="#hero" className="text-sm font-medium hover:text-primary transition-colors">
             About
           </a>
