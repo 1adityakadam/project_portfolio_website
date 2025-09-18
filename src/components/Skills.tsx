@@ -91,7 +91,7 @@ export function Skills() {
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {certifications.map((cert, index) => (
-                  <div key={index} className="flex items-center gap-3 p-4 glass hover:bg-accent/10 transition-all duration-300 hover:scale-105 rounded-lg animate-slide-right hover:animate-none">
+                  <div key={index} className="flex items-center gap-3 p-4 glass hover:bg-accent/10 transition-all duration-300 hover:scale-105 rounded-lg">
                     <div className="w-2 h-2 bg-primary rounded-full"></div>
                     <span className="font-medium">{cert}</span>
                   </div>

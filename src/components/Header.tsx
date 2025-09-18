@@ -10,8 +10,8 @@ export function Header() {
           {/* Logo placeholder - removed name */}
         </div>
         
-        <nav className="hidden md:flex items-center space-x-6">
-          <a href="#about" className="text-sm font-medium hover:text-primary transition-colors">
+        <nav className="hidden md:flex items-center space-x-6" style={{ marginLeft: '30px' }}>
+          <a href="#hero" className="text-sm font-medium hover:text-primary transition-colors">
             About
           </a>
           <a href="#experience" className="text-sm font-medium hover:text-primary transition-colors">
