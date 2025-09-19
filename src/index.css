@@ -122,6 +122,7 @@
 
   html {
     scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
   }
 
   body {
@@ -160,6 +161,12 @@
     transform: translate(-50%, -50%);
   }
   
+  /* Scroll Snap */
+  .snap-section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+}
 
 /* Glass morphism utility classes */
 @layer components {

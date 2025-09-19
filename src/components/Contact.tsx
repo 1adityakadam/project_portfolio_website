@@ -15,6 +15,9 @@ export function Contact() {
 
         <div className="max-w-2xl mx-auto">
           <Card className="glass hover:bg-accent/10 transition-all duration-300 hover:scale-[1.02]">
+            <CardHeader>
+              <CardTitle className="text-center text-2xl">Get In Touch</CardTitle>
+            </CardHeader>
             <CardContent className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <Button variant="outline" size="lg" className="h-16 flex-col gap-2 glass hover:bg-accent hover:text-accent-foreground transition-all duration-300" asChild>
