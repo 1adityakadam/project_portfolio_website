@@ -7,7 +7,7 @@ export function Contact() {
     <section id="contact" className="py-20 glass-section">
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Let's Connect</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary font-playfair">Let's Connect</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Ready to collaborate on data science projects or discuss opportunities? I'd love to hear from you.
           </p>

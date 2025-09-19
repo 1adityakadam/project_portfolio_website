@@ -62,14 +62,22 @@ export function Experience() {
     <section 
       id="experience" 
       ref={sectionRef}
-      className="py-20 glass-section"
+      className="py-20 glass-section relative overflow-hidden"
       style={{
         background: 'hsl(var(--background))'
       }}
     >
+      {/* Moving Background Elements */}
+      <div className="floating-element w-24 h-24 bg-accent/20 rounded-full" style={{ top: '10%', left: '5%' }}></div>
+      <div className="floating-element w-16 h-16 bg-accent/20 rounded-full" style={{ top: '60%', right: '10%' }}></div>
+      <div className="floating-element w-20 h-20 bg-accent/20 rounded-full" style={{ top: '80%', left: '20%' }}></div>
+      <div className="particle w-2 h-2" style={{ left: '10%' }}></div>
+      <div className="particle w-3 h-3" style={{ left: '30%' }}></div>
+      <div className="particle w-1 h-1" style={{ left: '60%' }}></div>
+      <div className="particle w-2 h-2" style={{ left: '80%' }}></div>
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Professional Experience</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary font-playfair">Professional Experience</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Driving data-driven decisions across education and consulting sectors
           </p>

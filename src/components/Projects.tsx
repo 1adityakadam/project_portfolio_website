@@ -263,9 +263,16 @@ export function Projects() {
         background: 'hsl(var(--background))'
       }}
     >
+      {/* Moving Background Elements */}
+      <div className="floating-element w-32 h-32 bg-accent/20 rounded-full" style={{ top: '15%', right: '5%' }}></div>
+      <div className="floating-element w-20 h-20 bg-accent/20 rounded-full" style={{ top: '70%', left: '10%' }}></div>
+      <div className="floating-element w-16 h-16 bg-accent/20 rounded-full" style={{ top: '40%', right: '20%' }}></div>
+      <div className="particle w-2 h-2" style={{ left: '15%' }}></div>
+      <div className="particle w-3 h-3" style={{ left: '45%' }}></div>
+      <div className="particle w-2 h-2" style={ { left: '75%' }}></div>
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Featured Projects</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary font-playfair">Featured Projects</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Showcasing data science projects that solve real-world problems through analytics and visualization
           </p>
@@ -376,186 +383,6 @@ export function Projects() {
           {/* Fade overlays */}
           <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-background to-transparent pointer-events-none z-10"></div>
           <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-background to-transparent pointer-events-none z-10"></div>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
-          {projects.map((project, index) => (
-            <Card key={index} className="group glass hover:bg-accent/10 transition-all duration-300 hover:scale-[1.02] overflow-hidden">
-              {project.image && (
-                <div className="aspect-video overflow-hidden bg-muted">
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-              )}
-              <CardHeader>
-                <div className="flex items-start justify-between">
-                  <div className="flex-1">
-                    <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                      {project.title}
-                    </CardTitle>
-                    {project.period && (
-                      <p className="text-sm text-muted-foreground mt-1">{project.period}</p>
-                    )}
-                  </div>
-                   {(project.github) && (
-                     <div className="flex gap-2">
-                       {project.github && (
-                        <Button variant="ghost" size="sm" asChild>
-                          <a href={project.github} target="_blank" rel="noopener noreferrer">
-                            <Github className="w-4 h-4" />
-                          </a>
-                         </Button>
-                       )}
-                     </div>
-                   )}
-                </div>
-                <CardDescription className="text-base">
-                  {project.description}
-                </CardDescription>
-                {project.longDescription && (
-                  <p className="text-sm text-muted-foreground">{project.longDescription}</p>
-                )}
-              </CardHeader>
-              <CardContent>
-                {project.features && (
-                  <div className="space-y-3 mb-6">
-                    {project.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-start gap-3">
-                        <div className="text-primary mt-0.5">{feature.icon}</div>
-                        <div>
-                          <p className="font-medium text-sm">{feature.title}</p>
-                          <p className="text-xs text-muted-foreground">{feature.description}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-                
-                {project.dataStructure && (
-                  <div className="mb-4">
-                    <p className="text-sm font-medium mb-2">Data Structure:</p>
-                    <ul className="text-xs text-muted-foreground space-y-1">
-                      {project.dataStructure.map((item, idx) => (
-                        <li key={idx} className="flex items-center">
-                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></div>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {project.classifications && (
-                  <div className="mb-4">
-                    <p className="text-sm font-medium mb-2">Classification Categories:</p>
-                    <ul className="text-xs text-muted-foreground space-y-1">
-                      {project.classifications.map((cat, idx) => (
-                        <li key={idx} className="flex items-center">
-                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></div>
-                          {cat}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {project.filters && (
-                  <div className="mb-4">
-                    <p className="text-sm font-medium mb-2">Available Filters:</p>
-                    <ul className="text-xs text-muted-foreground space-y-1">
-                      {project.filters.map((filter, idx) => (
-                        <li key={idx} className="flex items-center">
-                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></div>
-                          {filter}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {project.insights && (
-                  <div className="mb-4">
-                    <p className="text-sm font-medium mb-2">Key Insights:</p>
-                    <ul className="text-xs text-muted-foreground space-y-1">
-                      {project.insights.map((insight, idx) => (
-                        <li key={idx} className="flex items-center">
-                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></div>
-                          {insight}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {project.dataSource && (
-                  <div className="mb-4">
-                    <p className="text-sm font-medium mb-2">Data Sources:</p>
-                    <ul className="text-xs text-muted-foreground space-y-1">
-                      {project.dataSource.map((source, idx) => (
-                        <li key={idx} className="flex items-center">
-                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></div>
-                          {source}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {project.businessQuestions && (
-                  <div className="mb-4">
-                    <p className="text-sm font-medium mb-2">Business Questions Addressed:</p>
-                    <ul className="text-xs text-muted-foreground space-y-1">
-                      {project.businessQuestions.map((question, idx) => (
-                        <li key={idx} className="flex items-center">
-                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></div>
-                          {question}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {project.playerRoles && (
-                  <div className="mb-4">
-                    <p className="text-sm font-medium mb-2">Player Role Classifications:</p>
-                    <ul className="text-xs text-muted-foreground space-y-1">
-                      {project.playerRoles.map((role, idx) => (
-                        <li key={idx} className="flex items-center">
-                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></div>
-                          {role}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {project.dashboardFeatures && (
-                  <div className="mb-4">
-                    <p className="text-sm font-medium mb-2">Dashboard Features:</p>
-                    <ul className="text-xs text-muted-foreground space-y-1">
-                      {project.dashboardFeatures.map((feature, idx) => (
-                        <li key={idx} className="flex items-center">
-                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></div>
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-                
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech, idx) => (
-                    <Badge key={idx} variant="secondary" className="text-xs">
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
         </div>
       </div>
     </section>
