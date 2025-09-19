@@ -6,42 +6,42 @@
 
 @layer base {
   :root {
-    --background: 202 100% 78%;
-    --foreground: 220 30% 15%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
 
-    --card: 202 80% 85%;
-    --card-foreground: 220 30% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
 
-    --popover: 202 80% 85%;
-    --popover-foreground: 220 30% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
 
-    --primary: 220 30% 15%;
-    --primary-foreground: 202 100% 95%;
-    --primary-hover: 220 40% 25%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 0 0% 20%;
 
-    --secondary: 220 15% 25%;
-    --secondary-foreground: 202 100% 95%;
+    --secondary: 220 13% 15%;
+    --secondary-foreground: 220 13% 98%;
 
-    --muted: 220 15% 25%;
-    --muted-foreground: 220 20% 45%;
+    --muted: 220 13% 15%;
+    --muted-foreground: 220 9% 65%;
 
-    --accent: 220 50% 35%;
-    --accent-foreground: 202 100% 95%;
+    --accent: 220 13% 15%;
+    --accent-foreground: 220 13% 98%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 202 100% 95%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 220 20% 70%;
-    --input: 220 20% 70%;
-    --ring: 220 50% 45%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 220 91% 56%;
 
     --radius: 0.75rem;
 
     /* Custom portfolio colors */
-    --gradient-primary: linear-gradient(135deg, hsl(220 50% 45%), hsl(240 60% 55%));
-    --gradient-secondary: linear-gradient(135deg, hsl(202 70% 80%), hsl(202 60% 75%));
-    --shadow-elegant: 0 10px 25px -5px hsl(220 50% 45% / 0.15);
-    --shadow-card: 0 4px 6px -1px hsl(220 30% 25% / 0.1);
+    --gradient-primary: linear-gradient(135deg, hsl(220 91% 56%), hsl(240 91% 66%));
+    --gradient-secondary: linear-gradient(135deg, hsl(220 13% 96%), hsl(220 13% 91%));
+    --shadow-elegant: 0 10px 25px -5px hsl(220 91% 56% / 0.1);
+    --shadow-card: 0 4px 6px -1px hsl(220 13% 13% / 0.1);
     
     /* Professional spacing */
     --section-padding: 5rem;
@@ -122,49 +122,10 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
   }
 
   body {
     @apply bg-background text-foreground;
-    cursor: none;
-  }
-  
-  /* Glass Cursor */
-  .glass-cursor {
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    mix-blend-mode: difference;
-    transition: transform 0.1s ease;
-    box-shadow: 
-      0 0 20px rgba(255, 255, 255, 0.1),
-      inset 0 0 10px rgba(255, 255, 255, 0.2);
-  }
-  
-  .glass-cursor::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 6px;
-    height: 6px;
-    background: rgba(255, 255, 255, 0.6);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-  }
-  
-  /* Scroll Snap */
-  .snap-section {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
   }
 }
 
