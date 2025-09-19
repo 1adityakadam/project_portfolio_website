@@ -2,8 +2,32 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Github, BarChart3, Database, TrendingUp, Users, Calendar, Search, Target, Trophy, Activity } from "lucide-react"
+import { useEffect, useRef } from "react"
 
 export function Projects() {
+  const sectionRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!sectionRef.current) return
+      
+      const { clientX, clientY } = e
+      const { innerWidth, innerHeight } = window
+      
+      const x = (clientX / innerWidth) * 100
+      const y = (clientY / innerHeight) * 100
+      
+      sectionRef.current.style.background = `
+        radial-gradient(circle at ${x}% ${y}%, 
+          hsl(var(--primary) / 0.05) 0%, 
+          transparent 50%),
+        hsl(var(--background))
+      `
+    }
+
+    document.addEventListener('mousemove', handleMouseMove)
+    return () => document.removeEventListener('mousemove', handleMouseMove)
+  }, [])
   const projects = [
     {
       title: "Ancestry Grid for Carnegie Classification of Institutions of Higher Education",
@@ -231,13 +255,127 @@ export function Projects() {
   ]
 
   return (
-    <section id="projects" className="py-20 glass-section">
+    <section 
+      id="projects" 
+      ref={sectionRef}
+      className="py-20 glass-section relative overflow-hidden"
+      style={{
+        background: 'hsl(var(--background))'
+      }}
+    >
       <div className="container">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Featured Projects</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Showcasing data science projects that solve real-world problems through analytics and visualization
           </p>
+        </div>
+
+        {/* Sliding Projects Container */}
+        <div className="relative overflow-hidden w-full mb-8">
+          <div className="flex animate-[slide-right_60s_linear_infinite] gap-8 w-max">
+            {/* First set of projects */}
+            {projects.map((project, index) => (
+              <Card key={`first-${index}`} className="group glass hover:bg-accent/10 transition-all duration-300 hover:scale-[1.02] overflow-hidden w-[400px] flex-shrink-0">
+                {project.image && (
+                  <div className="aspect-video overflow-hidden bg-muted">
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                )}
+                <CardHeader>
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <CardTitle className="text-lg group-hover:text-primary transition-colors">
+                        {project.title}
+                      </CardTitle>
+                      {project.period && (
+                        <p className="text-sm text-muted-foreground mt-1">{project.period}</p>
+                      )}
+                    </div>
+                    {(project.github) && (
+                      <div className="flex gap-2">
+                        {project.github && (
+                         <Button variant="ghost" size="sm" asChild>
+                           <a href={project.github} target="_blank" rel="noopener noreferrer">
+                             <Github className="w-4 h-4" />
+                           </a>
+                          </Button>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                  <CardDescription className="text-sm">
+                    {project.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.slice(0, 4).map((tech, idx) => (
+                      <Badge key={idx} variant="secondary" className="text-xs">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+            {/* Duplicate set for seamless loop */}
+            {projects.map((project, index) => (
+              <Card key={`second-${index}`} className="group glass hover:bg-accent/10 transition-all duration-300 hover:scale-[1.02] overflow-hidden w-[400px] flex-shrink-0">
+                {project.image && (
+                  <div className="aspect-video overflow-hidden bg-muted">
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                )}
+                <CardHeader>
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <CardTitle className="text-lg group-hover:text-primary transition-colors">
+                        {project.title}
+                      </CardTitle>
+                      {project.period && (
+                        <p className="text-sm text-muted-foreground mt-1">{project.period}</p>
+                      )}
+                    </div>
+                    {(project.github) && (
+                      <div className="flex gap-2">
+                        {project.github && (
+                         <Button variant="ghost" size="sm" asChild>
+                           <a href={project.github} target="_blank" rel="noopener noreferrer">
+                             <Github className="w-4 h-4" />
+                           </a>
+                          </Button>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                  <CardDescription className="text-sm">
+                    {project.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.slice(0, 4).map((tech, idx) => (
+                      <Badge key={idx} variant="secondary" className="text-xs">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          {/* Fade overlays */}
+          <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-background to-transparent pointer-events-none z-10"></div>
+          <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-background to-transparent pointer-events-none z-10"></div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">

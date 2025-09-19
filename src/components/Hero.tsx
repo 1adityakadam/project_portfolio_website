@@ -38,9 +38,8 @@ export function Hero() {
     >
       {/* Large Typography Name */}
       <div className="text-center mb-8">
-        <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tight leading-none font-playfair">
-          <span className="text-primary block">ADITYA</span>
-          <span className="text-primary block">KADAM</span>
+        <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tight leading-none font-playfair text-primary">
+          ADITYA KADAM
         </h1>
       </div>
 

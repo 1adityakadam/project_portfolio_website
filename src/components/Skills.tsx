@@ -1,8 +1,32 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Code, Database, BarChart3, Wrench, Award } from "lucide-react"
+import { useEffect, useRef } from "react"
 
 export function Skills() {
+  const sectionRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!sectionRef.current) return
+      
+      const { clientX, clientY } = e
+      const { innerWidth, innerHeight } = window
+      
+      const x = (clientX / innerWidth) * 100
+      const y = (clientY / innerHeight) * 100
+      
+      sectionRef.current.style.background = `
+        radial-gradient(circle at ${x}% ${y}%, 
+          hsl(var(--primary) / 0.05) 0%, 
+          transparent 50%),
+        hsl(var(--background))
+      `
+    }
+
+    document.addEventListener('mousemove', handleMouseMove)
+    return () => document.removeEventListener('mousemove', handleMouseMove)
+  }, [])
   const skillCategories = [
     {
       title: "Programming Languages",
@@ -45,7 +69,14 @@ export function Skills() {
   ]
 
   return (
-    <section id="skills" className="py-20 glass-section">
+    <section 
+      id="skills" 
+      ref={sectionRef}
+      className="py-20 glass-section"
+      style={{
+        background: 'hsl(var(--background))'
+      }}
+    >
       <div className="container">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Skills & Expertise</h2>
