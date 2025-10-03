@@ -6,7 +6,6 @@ import { useEffect, useRef, useState } from "react"
 
 export function Projects() {
   const sectionRef = useRef<HTMLDivElement>(null)
-  const [isPaused, setIsPaused] = useState(false)
   const [showAll, setShowAll] = useState(false)
 
   useEffect(() => {
@@ -464,15 +463,23 @@ export function Projects() {
         </div>
 
         {/* Sliding Projects Container */}
-        <div className="relative overflow-hidden w-full mb-8">
-          <div 
-            className={`flex gap-8 w-max ${isPaused ? '' : 'animate-[slide-right_60s_linear_infinite]'}`}
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-          >
-            {/* First set of projects */}
-            {projects.map((project, index) => (
-              <Card key={`first-${index}`} className="group glass hover:bg-accent/10 transition-all duration-300 hover:scale-[1.02] overflow-hidden w-[400px] flex-shrink-0">
+        {!showAll && (
+          <div className="relative overflow-hidden w-full mb-8">
+            <div className="flex gap-8 w-max animate-[slide-right_60s_linear_infinite]">
+              {/* First set of projects */}
+              {projects.map((project, index) => (
+                <Card 
+                  key={`first-${index}`} 
+                  className="group glass hover:bg-accent/10 transition-all duration-300 hover:scale-[1.02] overflow-hidden w-[400px] flex-shrink-0 hover:[animation-play-state:paused]"
+                  onMouseEnter={(e) => {
+                    const parent = e.currentTarget.parentElement;
+                    if (parent) parent.style.animationPlayState = 'paused';
+                  }}
+                  onMouseLeave={(e) => {
+                    const parent = e.currentTarget.parentElement;
+                    if (parent) parent.style.animationPlayState = 'running';
+                  }}
+                >
                 {project.image && (
                   <div className="aspect-video overflow-hidden bg-muted">
                     <img 
@@ -519,9 +526,20 @@ export function Projects() {
                 </CardContent>
               </Card>
             ))}
-            {/* Duplicate set for seamless loop */}
-            {projects.map((project, index) => (
-              <Card key={`second-${index}`} className="group glass hover:bg-accent/10 transition-all duration-300 hover:scale-[1.02] overflow-hidden w-[400px] flex-shrink-0">
+              {/* Duplicate set for seamless loop */}
+              {projects.map((project, index) => (
+                <Card 
+                  key={`second-${index}`} 
+                  className="group glass hover:bg-accent/10 transition-all duration-300 hover:scale-[1.02] overflow-hidden w-[400px] flex-shrink-0"
+                  onMouseEnter={(e) => {
+                    const parent = e.currentTarget.parentElement;
+                    if (parent) parent.style.animationPlayState = 'paused';
+                  }}
+                  onMouseLeave={(e) => {
+                    const parent = e.currentTarget.parentElement;
+                    if (parent) parent.style.animationPlayState = 'running';
+                  }}
+                >
                 {project.image && (
                   <div className="aspect-video overflow-hidden bg-muted">
                     <img 
@@ -569,10 +587,11 @@ export function Projects() {
               </Card>
             ))}
           </div>
-          {/* Fade overlays */}
-          <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-background to-transparent pointer-events-none z-10"></div>
-          <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-background to-transparent pointer-events-none z-10"></div>
-        </div>
+            {/* Fade overlays */}
+            <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-background to-transparent pointer-events-none z-10"></div>
+            <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-background to-transparent pointer-events-none z-10"></div>
+          </div>
+        )}
 
         {/* Toggle Button */}
         <div className="text-center mb-8">
