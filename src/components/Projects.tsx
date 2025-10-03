@@ -1,11 +1,13 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ExternalLink, Github, BarChart3, Database, TrendingUp, Users, Calendar, Search, Target, Trophy, Activity } from "lucide-react"
-import { useEffect, useRef } from "react"
+import { ExternalLink, Github, BarChart3, Database, TrendingUp, Users, Calendar, Search, Target, Trophy, Activity, ChevronDown, ChevronUp } from "lucide-react"
+import { useEffect, useRef, useState } from "react"
 
 export function Projects() {
   const sectionRef = useRef<HTMLDivElement>(null)
+  const [isPaused, setIsPaused] = useState(false)
+  const [showAll, setShowAll] = useState(false)
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -28,6 +30,7 @@ export function Projects() {
     document.addEventListener('mousemove', handleMouseMove)
     return () => document.removeEventListener('mousemove', handleMouseMove)
   }, [])
+  
   const projects = [
     {
       title: "Ancestry Grid for Carnegie Classification of Institutions of Higher Education",
@@ -251,6 +254,182 @@ export function Projects() {
       period: "T20 World Cup 2022",
       github: "https://github.com/1adityakadam",
       image: "/lovable-uploads/c0b3cfa2-690d-4800-ac8a-0162be93af29.png"
+    },
+    {
+      title: "Air Pollution Forecasting using LSTM",
+      description: "An LSTM neural network model to predict PM2.5 pollution levels in the next hour using weather conditions and current pollution levels.",
+      longDescription: "Time series forecasting project using univariate and multivariate LSTM models trained on 5 years of air quality data from Beijing, China.",
+      features: [
+        {
+          icon: <TrendingUp className="w-4 h-4" />,
+          title: "Time Series Prediction",
+          description: "Forecast pollution levels using historical weather and PM2.5 data"
+        },
+        {
+          icon: <Database className="w-4 h-4" />,
+          title: "Multi-variate Analysis",
+          description: "Consider temperature, pressure, wind speed, dew point, and precipitation"
+        },
+        {
+          icon: <BarChart3 className="w-4 h-4" />,
+          title: "Model Evaluation",
+          description: "RMSE and MAPE metrics with actual vs predicted visualization"
+        },
+        {
+          icon: <Activity className="w-4 h-4" />,
+          title: "3-Layer LSTM",
+          description: "50-neuron architecture with 20% dropout regularization"
+        }
+      ],
+      technologies: ["Python", "LSTM", "TensorFlow", "Keras", "Pandas", "Time Series Analysis"],
+      period: "5-year dataset",
+      github: "https://github.com/jyoti0225/Air-Pollution-Forecasting"
+    },
+    {
+      title: "Content-Based Movie Recommender System",
+      description: "End-to-end movie recommendation system using content-based filtering with NLP techniques and live poster fetching via TMDb API.",
+      longDescription: "Streamlit web app that recommends similar movies based on genres, keywords, cast, director, and overview using cosine similarity.",
+      features: [
+        {
+          icon: <Search className="w-4 h-4" />,
+          title: "Content-Based Filtering",
+          description: "No user history required - pure content similarity matching"
+        },
+        {
+          icon: <Database className="w-4 h-4" />,
+          title: "NLP Pipeline",
+          description: "Parse JSON, clean text, apply stemming, and vectorize with CountVectorizer"
+        },
+        {
+          icon: <Activity className="w-4 h-4" />,
+          title: "Live Posters",
+          description: "Fetch movie posters in real-time via TMDb API"
+        },
+        {
+          icon: <BarChart3 className="w-4 h-4" />,
+          title: "Cosine Similarity",
+          description: "Top-N recommendations using 5000 feature vectors"
+        }
+      ],
+      technologies: ["Python", "Streamlit", "NLP", "scikit-learn", "NLTK", "TMDb API", "Heroku"],
+      github: "https://github.com/1adityakadam/Content-Based-Movie-Recommender-System"
+    },
+    {
+      title: "Multi-Model Car Acceptability Classification",
+      description: "Car acceptability classification using multiple machine learning models including Multinomial Linear Regression, SVM, Random Forest, and Ensemble methods.",
+      longDescription: "Comparative analysis of classification algorithms on car evaluation dataset with comprehensive model performance metrics.",
+      features: [
+        {
+          icon: <BarChart3 className="w-4 h-4" />,
+          title: "Multiple Models",
+          description: "Compare Linear Regression, SVM, Random Forest, and Ensemble techniques"
+        },
+        {
+          icon: <Target className="w-4 h-4" />,
+          title: "Classification Task",
+          description: "Predict car acceptability based on multiple attributes"
+        },
+        {
+          icon: <Activity className="w-4 h-4" />,
+          title: "Model Evaluation",
+          description: "Comprehensive accuracy and performance metrics comparison"
+        },
+        {
+          icon: <Database className="w-4 h-4" />,
+          title: "Feature Engineering",
+          description: "Process and transform car attributes for optimal prediction"
+        }
+      ],
+      technologies: ["Python", "scikit-learn", "Random Forest", "SVM", "Ensemble Methods", "Pandas"],
+      github: "https://github.com/1adityakadam/Multi-Model-Car-Acceptability-Classification"
+    },
+    {
+      title: "Netflix Data Analysis with DBT & Snowflake",
+      description: "End-to-end ELT pipeline using Amazon S3, Snowflake, and dbt for MovieLens dataset analytics with BI dashboard integration.",
+      longDescription: "Modern data stack implementation with layered architecture covering raw, staging, and serving layers for analytics-ready data models.",
+      features: [
+        {
+          icon: <Database className="w-4 h-4" />,
+          title: "ELT Pipeline",
+          description: "Extract from S3, load into Snowflake, transform with dbt"
+        },
+        {
+          icon: <TrendingUp className="w-4 h-4" />,
+          title: "Layered Architecture",
+          description: "Raw, staging, and serving layers with data quality tests"
+        },
+        {
+          icon: <BarChart3 className="w-4 h-4" />,
+          title: "Analytics Ready",
+          description: "Connect to Looker Studio, Power BI, and Tableau"
+        },
+        {
+          icon: <Activity className="w-4 h-4" />,
+          title: "Data Modeling",
+          description: "dbt models, snapshots, seeds, macros, and orchestration"
+        }
+      ],
+      technologies: ["dbt", "Snowflake", "Amazon S3", "SQL", "Looker Studio", "Power BI", "Tableau"],
+      github: "https://github.com/1adityakadam/Netflix_data_analysis"
+    },
+    {
+      title: "Air Quality Index Prediction using LSTM",
+      description: "Univariate LSTM model for predicting PM2.5 levels as AQI proxy using 4 years of hourly air quality data from China.",
+      longDescription: "Time series forecasting with exploratory data analysis, visualization, and LSTM neural network for pollution trend prediction.",
+      features: [
+        {
+          icon: <TrendingUp className="w-4 h-4" />,
+          title: "Univariate LSTM",
+          description: "Predict PM2.5 concentration using historical hourly values"
+        },
+        {
+          icon: <BarChart3 className="w-4 h-4" />,
+          title: "EDA & Visualization",
+          description: "Comprehensive exploratory analysis of pollutant trends"
+        },
+        {
+          icon: <Database className="w-4 h-4" />,
+          title: "4-Year Dataset",
+          description: "January 2013 to February 2017 hourly measurements"
+        },
+        {
+          icon: <Activity className="w-4 h-4" />,
+          title: "Model Evaluation",
+          description: "Mean Squared Error metrics with test predictions"
+        }
+      ],
+      technologies: ["Python", "LSTM", "TensorFlow", "Keras", "Pandas", "Matplotlib", "Seaborn"],
+      period: "2013-2017",
+      github: "https://github.com/1adityakadam/Predicting-Air-quality-index-using-LSTM"
+    },
+    {
+      title: "Twitter Sentiment Analysis with NLP",
+      description: "NLP pipeline for classifying tweet sentiment as toxic or non-toxic using text cleaning, feature engineering, and supervised learning models.",
+      longDescription: "Hate speech detection system with comprehensive preprocessing, exploratory analysis, and multiple classification algorithms evaluated on F1-score.",
+      features: [
+        {
+          icon: <Search className="w-4 h-4" />,
+          title: "NLP Pipeline",
+          description: "Lowercasing, tokenization, stopword removal, and Porter stemming"
+        },
+        {
+          icon: <BarChart3 className="w-4 h-4" />,
+          title: "Feature Engineering",
+          description: "Bag-of-Words with 2500 features and optional Word2Vec"
+        },
+        {
+          icon: <Target className="w-4 h-4" />,
+          title: "Multiple Models",
+          description: "RandomForest, LogisticRegression, SVM, DecisionTree, XGBoost"
+        },
+        {
+          icon: <Activity className="w-4 h-4" />,
+          title: "Text Analysis",
+          description: "Word clouds, frequency analysis, and hashtag extraction"
+        }
+      ],
+      technologies: ["Python", "NLTK", "scikit-learn", "XGBoost", "Word2Vec", "CountVectorizer"],
+      github: "https://github.com/1adityakadam/Tweet-Classification-using-NLP-Techniques"
     }
   ]
 
@@ -280,7 +459,11 @@ export function Projects() {
 
         {/* Sliding Projects Container */}
         <div className="relative overflow-hidden w-full mb-8">
-          <div className="flex animate-[slide-right_60s_linear_infinite] gap-8 w-max">
+          <div 
+            className={`flex gap-8 w-max ${isPaused ? '' : 'animate-[slide-right_60s_linear_infinite]'}`}
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
             {/* First set of projects */}
             {projects.map((project, index) => (
               <Card key={`first-${index}`} className="group glass hover:bg-accent/10 transition-all duration-300 hover:scale-[1.02] overflow-hidden w-[400px] flex-shrink-0">
@@ -384,6 +567,78 @@ export function Projects() {
           <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-background to-transparent pointer-events-none z-10"></div>
           <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-background to-transparent pointer-events-none z-10"></div>
         </div>
+
+        {/* Toggle Button */}
+        <div className="text-center mb-8">
+          <Button 
+            onClick={() => setShowAll(!showAll)}
+            variant="outline"
+            size="lg"
+            className="gap-2"
+          >
+            {showAll ? (
+              <>
+                <ChevronUp className="w-5 h-5" />
+                Hide All Projects
+              </>
+            ) : (
+              <>
+                <ChevronDown className="w-5 h-5" />
+                View All Projects
+              </>
+            )}
+          </Button>
+        </div>
+
+        {/* Expanded Static Grid */}
+        {showAll && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in">
+            {projects.map((project, index) => (
+              <Card key={`static-${index}`} className="group glass hover:bg-accent/10 transition-all duration-300 hover:scale-[1.02] overflow-hidden flex flex-col h-full">
+                {project.image && (
+                  <div className="aspect-video overflow-hidden bg-muted">
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                )}
+                <CardHeader className="flex-1">
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="flex-1">
+                      <CardTitle className="text-lg group-hover:text-primary transition-colors">
+                        {project.title}
+                      </CardTitle>
+                      {project.period && (
+                        <p className="text-sm text-muted-foreground mt-1">{project.period}</p>
+                      )}
+                    </div>
+                    {project.github && (
+                      <Button variant="ghost" size="sm" asChild>
+                        <a href={project.github} target="_blank" rel="noopener noreferrer">
+                          <Github className="w-4 h-4" />
+                        </a>
+                      </Button>
+                    )}
+                  </div>
+                  <CardDescription className="text-sm line-clamp-3">
+                    {project.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.slice(0, 5).map((tech, idx) => (
+                      <Badge key={idx} variant="secondary" className="text-xs">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   )
