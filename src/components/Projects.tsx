@@ -283,7 +283,8 @@ export function Projects() {
       ],
       technologies: ["Python", "LSTM", "TensorFlow", "Keras", "Pandas", "Time Series Analysis"],
       period: "5-year dataset",
-      github: "https://github.com/jyoti0225/Air-Pollution-Forecasting"
+      github: "https://github.com/jyoti0225/Air-Pollution-Forecasting",
+      image: "/lovable-uploads/air-pollution.png"
     },
     {
       title: "Content-Based Movie Recommender System",
@@ -312,7 +313,8 @@ export function Projects() {
         }
       ],
       technologies: ["Python", "Streamlit", "NLP", "scikit-learn", "NLTK", "TMDb API", "Heroku"],
-      github: "https://github.com/1adityakadam/Content-Based-Movie-Recommender-System"
+      github: "https://github.com/1adityakadam/Content-Based-Movie-Recommender-System",
+      image: "/lovable-uploads/movie-recommender.png"
     },
     {
       title: "Multi-Model Car Acceptability Classification",
@@ -341,7 +343,8 @@ export function Projects() {
         }
       ],
       technologies: ["Python", "scikit-learn", "Random Forest", "SVM", "Ensemble Methods", "Pandas"],
-      github: "https://github.com/1adityakadam/Multi-Model-Car-Acceptability-Classification"
+      github: "https://github.com/1adityakadam/Multi-Model-Car-Acceptability-Classification",
+      image: "/lovable-uploads/car-classification.png"
     },
     {
       title: "Netflix Data Analysis with DBT & Snowflake",
@@ -370,7 +373,8 @@ export function Projects() {
         }
       ],
       technologies: ["dbt", "Snowflake", "Amazon S3", "SQL", "Looker Studio", "Power BI", "Tableau"],
-      github: "https://github.com/1adityakadam/Netflix_data_analysis"
+      github: "https://github.com/1adityakadam/Netflix_data_analysis",
+      image: "/lovable-uploads/netflix-analysis.png"
     },
     {
       title: "Air Quality Index Prediction using LSTM",
@@ -400,7 +404,8 @@ export function Projects() {
       ],
       technologies: ["Python", "LSTM", "TensorFlow", "Keras", "Pandas", "Matplotlib", "Seaborn"],
       period: "2013-2017",
-      github: "https://github.com/1adityakadam/Predicting-Air-quality-index-using-LSTM"
+      github: "https://github.com/1adityakadam/Predicting-Air-quality-index-using-LSTM",
+      image: "/lovable-uploads/air-quality.png"
     },
     {
       title: "Twitter Sentiment Analysis with NLP",
@@ -429,7 +434,8 @@ export function Projects() {
         }
       ],
       technologies: ["Python", "NLTK", "scikit-learn", "XGBoost", "Word2Vec", "CountVectorizer"],
-      github: "https://github.com/1adityakadam/Tweet-Classification-using-NLP-Techniques"
+      github: "https://github.com/1adityakadam/Tweet-Classification-using-NLP-Techniques",
+      image: "/lovable-uploads/twitter-sentiment.png"
     }
   ]
 
