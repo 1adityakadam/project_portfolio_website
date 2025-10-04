@@ -1,32 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { GraduationCap, Calendar, MapPin, BookOpen } from "lucide-react"
-import { useEffect, useRef } from "react"
 
 export function Education() {
-  const sectionRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!sectionRef.current) return
-      
-      const { clientX, clientY } = e
-      const { innerWidth, innerHeight } = window
-      
-      const x = (clientX / innerWidth) * 100
-      const y = (clientY / innerHeight) * 100
-      
-      sectionRef.current.style.background = `
-        radial-gradient(circle at ${x}% ${y}%, 
-          hsl(var(--primary) / 0.05) 0%, 
-          transparent 50%),
-        hsl(var(--background))
-      `
-    }
-
-    document.addEventListener('mousemove', handleMouseMove)
-    return () => document.removeEventListener('mousemove', handleMouseMove)
-  }, [])
   const education = [
     {
       degree: "Master of Science in Data Science",
@@ -65,23 +41,15 @@ export function Education() {
   return (
     <section 
       id="education" 
-      ref={sectionRef}
-      className="py-20 glass-section relative overflow-hidden"
+      className="py-20"
       style={{
-        background: 'hsl(var(--background))'
+        background: 'hsl(var(--section-education))'
       }}
     >
-      {/* Moving Background Elements */}
-      <div className="floating-element w-26 h-26 bg-accent/20 rounded-full" style={{ top: '25%', right: '8%' }}></div>
-      <div className="floating-element w-20 h-20 bg-accent/20 rounded-full" style={{ top: '75%', left: '12%' }}></div>
-      <div className="floating-element w-22 h-22 bg-accent/20 rounded-full" style={{ top: '50%', right: '25%' }}></div>
-      <div className="particle w-2 h-2" style={{ left: '25%' }}></div>
-      <div className="particle w-3 h-3" style={{ left: '55%' }}></div>
-      <div className="particle w-1 h-1" style={{ left: '85%' }}></div>
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary font-playfair">Education</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-primary font-playfair">Education</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-lora">
             Academic foundation in data science and engineering principles
           </p>
         </div>

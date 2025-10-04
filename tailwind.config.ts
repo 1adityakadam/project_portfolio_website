@@ -20,6 +20,8 @@ export default {
 		extend: {
 			fontFamily: {
 				'playfair': ['Playfair Display', 'serif'],
+				'lora': ['Lora', 'serif'],
+				'courier': ['Courier Prime', 'monospace'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

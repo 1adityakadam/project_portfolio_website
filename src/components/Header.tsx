@@ -26,6 +26,9 @@ export function Header() {
           <a href="#education" className="text-sm font-medium hover:text-primary transition-colors">
             Education
           </a>
+          <a href="https://medium.com/@1adityakadam" target="_blank" rel="noopener noreferrer" className="text-sm font-medium hover:text-primary transition-colors">
+            Medium Blog Posts
+          </a>
         </nav>
 
         <div className="flex items-center space-x-2">

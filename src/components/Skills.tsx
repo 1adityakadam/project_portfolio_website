@@ -1,32 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Code, Database, BarChart3, Wrench, Award } from "lucide-react"
-import { useEffect, useRef } from "react"
 
 export function Skills() {
-  const sectionRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!sectionRef.current) return
-      
-      const { clientX, clientY } = e
-      const { innerWidth, innerHeight } = window
-      
-      const x = (clientX / innerWidth) * 100
-      const y = (clientY / innerHeight) * 100
-      
-      sectionRef.current.style.background = `
-        radial-gradient(circle at ${x}% ${y}%, 
-          hsl(var(--primary) / 0.05) 0%, 
-          transparent 50%),
-        hsl(var(--background))
-      `
-    }
-
-    document.addEventListener('mousemove', handleMouseMove)
-    return () => document.removeEventListener('mousemove', handleMouseMove)
-  }, [])
   const skillCategories = [
     {
       title: "Programming Languages",
@@ -71,23 +47,15 @@ export function Skills() {
   return (
     <section 
       id="skills" 
-      ref={sectionRef}
-      className="py-20 glass-section relative overflow-hidden"
+      className="py-20"
       style={{
-        background: 'hsl(var(--background))'
+        background: 'hsl(var(--section-skills))'
       }}
     >
-      {/* Moving Background Elements */}
-      <div className="floating-element w-28 h-28 bg-accent/20 rounded-full" style={{ top: '20%', left: '8%' }}></div>
-      <div className="floating-element w-18 h-18 bg-accent/20 rounded-full" style={{ top: '65%', right: '15%' }}></div>
-      <div className="floating-element w-24 h-24 bg-accent/20 rounded-full" style={{ top: '85%', left: '30%' }}></div>
-      <div className="particle w-2 h-2" style={{ left: '20%' }}></div>
-      <div className="particle w-1 h-1" style={{ left: '50%' }}></div>
-      <div className="particle w-3 h-3" style={{ left: '70%' }}></div>
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary font-playfair">Skills & Expertise</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-primary font-playfair">Skills & Expertise</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-lora">
             Technical proficiencies spanning the entire data science workflow
           </p>
         </div>

@@ -2,33 +2,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Github, BarChart3, Database, TrendingUp, Users, Calendar, Search, Target, Trophy, Activity, ChevronDown, ChevronUp } from "lucide-react"
-import { useEffect, useRef, useState } from "react"
+import { useState } from "react"
 
 export function Projects() {
-  const sectionRef = useRef<HTMLDivElement>(null)
   const [showAll, setShowAll] = useState(false)
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!sectionRef.current) return
-      
-      const { clientX, clientY } = e
-      const { innerWidth, innerHeight } = window
-      
-      const x = (clientX / innerWidth) * 100
-      const y = (clientY / innerHeight) * 100
-      
-      sectionRef.current.style.background = `
-        radial-gradient(circle at ${x}% ${y}%, 
-          hsl(var(--primary) / 0.05) 0%, 
-          transparent 50%),
-        hsl(var(--background))
-      `
-    }
-
-    document.addEventListener('mousemove', handleMouseMove)
-    return () => document.removeEventListener('mousemove', handleMouseMove)
-  }, [])
   
   const projects = [
     {
@@ -441,23 +418,15 @@ export function Projects() {
   return (
     <section 
       id="projects" 
-      ref={sectionRef}
-      className="py-20 glass-section relative overflow-hidden"
+      className="py-20"
       style={{
-        background: 'hsl(var(--background))'
+        background: 'hsl(var(--section-projects))'
       }}
     >
-      {/* Moving Background Elements */}
-      <div className="floating-element w-32 h-32 bg-accent/20 rounded-full" style={{ top: '15%', right: '5%' }}></div>
-      <div className="floating-element w-20 h-20 bg-accent/20 rounded-full" style={{ top: '70%', left: '10%' }}></div>
-      <div className="floating-element w-16 h-16 bg-accent/20 rounded-full" style={{ top: '40%', right: '20%' }}></div>
-      <div className="particle w-2 h-2" style={{ left: '15%' }}></div>
-      <div className="particle w-3 h-3" style={{ left: '45%' }}></div>
-      <div className="particle w-2 h-2" style={ { left: '75%' }}></div>
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary font-playfair">Featured Projects</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-primary font-playfair">Featured Projects</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-lora">
             Showcasing data science projects that solve real-world problems through analytics and visualization
           </p>
         </div>

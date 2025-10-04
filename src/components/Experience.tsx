@@ -1,101 +1,79 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Calendar, MapPin } from "lucide-react"
-import { useEffect, useRef } from "react"
 
 export function Experience() {
-  const sectionRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!sectionRef.current) return
-      
-      const { clientX, clientY } = e
-      const { innerWidth, innerHeight } = window
-      
-      const x = (clientX / innerWidth) * 100
-      const y = (clientY / innerHeight) * 100
-      
-      sectionRef.current.style.background = `
-        radial-gradient(circle at ${x}% ${y}%, 
-          hsl(var(--primary) / 0.05) 0%, 
-          transparent 50%),
-        hsl(var(--background))
-      `
-    }
-
-    document.addEventListener('mousemove', handleMouseMove)
-    return () => document.removeEventListener('mousemove', handleMouseMove)
-  }, [])
   const experiences = [
     {
-      title: "Data Analyst",
-      company: "Indiana University School of Education",
-      location: "Bloomington, IN, USA",
-      period: "Apr 2025 – June 2025",
+      title: "Data Scientist",
+      company: "Project 990",
+      location: "Bloomington, IN",
+      period: "Aug 2025 – Present",
       description: [
-        "Conducted a historical analysis of higher-education metrics using Python (pandas) and SQL, uncovering institutional ancestry trends across 64,000+ records.",
-        "Engineered and deployed an interactive web-based visualization enabling non-technical stakeholders to explore 100+ institutional mergers and absorptions.",
-        "Optimized performance by implementing data partitioning, reducing response time by 30% through selective loading of 10 institutions at a time.",
-        "Enhanced data integrity and code quality by executing rigorous cleansing checks and data validation, restructuring scripts, reducing errors by 15% and improving reliability by 20%."
+        "Engineered an unsupervised Label2Vec embedding pipeline to cluster and semantically map 176K+ organization names, enabling scalable candidate labeling.",
+        "Deployed a BERT-based label refinement model to normalize noisy organization strings and generate high-quality label suggestions."
       ],
-      skills: ["Python", "Pandas", "Statistical Analysis", "HTML/CSS", "Data Visualization"]
+      skills: ["Label2Vec", "BERT", "PyTorch", "NumPy", "Jupyter", "SQL"]
+    },
+    {
+      title: "Analytics Engineer",
+      company: "Indiana University School of Education",
+      location: "Bloomington, IN",
+      period: "Apr 2025 – Jul 2025",
+      description: [
+        "Analyzed 64,000+ higher-education records with pandas and SQL to reveal institutional ancestry and merger patterns.",
+        "Collaborated with faculty to prototype and launch a web visualization that improved stakeholder comprehension of merger events ~15%.",
+        "Optimized ingestion and query performance via partitioning and selective loading, reducing latency by ~30%.",
+        "Hardened ETL reliability by implementing validation rules and cleansing routines, cutting downstream errors by ~15%."
+      ],
+      skills: ["Python", "Pandas", "ETL", "Data Partitioning", "Data Validation", "Render", "Dashboarding"]
     },
     {
       title: "Data Analyst",
       company: "Nice Consultancy",
-      location: "Mumbai, MH, India",
+      location: "Mumbai, India",
       period: "Jul 2022 – Jun 2024",
       description: [
-        "Implemented 95% of vendor selections against defined technical instrument index database, leveraging Excel to organize and analyze technical data for over 500+ instrumentation components",
-        "Improved the bid evaluation process by automating data extraction and vendor specifications against detailed instrumentation component data and guaranteeing compliance with industry standards and regulations",
-        "Improved the flow of evaluation process by automating data extraction from vendor specification sheets, reducing evaluation time by 30% and saving 40+ hours per month for the team",
-        "Led data analysis processes for enhancing the efficiency of bid evaluations and technical clarifications by 20%",
-        "Developed 5+ comprehensive technical dashboards using Tableau, synthesizing critical instrumentation metrics and facilitating informed decision-making for project stakeholders and streamlined operational workflows",
-        "Reviewed post-order documentation to validate compliance with predefined standards, reducing errors in instrumentation procurement by 15%"
+        "Prepared and reconciled technical datasets for 1,000+ instrumentation components, increasing reporting accuracy by ~20%.",
+        "Automated bid-evaluation workflows with Python and Excel macros, reducing manual processing time by ~30% and saving 40+ staff hours.",
+        "Designed Tableau and Power BI dashboards to monitor procurement KPIs and accelerate decision-making.",
+        "Led vendor-quality analysis and procurement recommendations that lowered data costs by ~10%."
       ],
-      skills: ["Excel", "Tableau", "Data Analysis", "Process Automation", "Technical Documentation"]
+      skills: ["Excel Macros", "Automation", "Data Cleaning", "Tableau", "Power BI", "Reporting", "Git"]
     }
   ]
 
   return (
     <section 
       id="experience" 
-      ref={sectionRef}
-      className="py-20 glass-section relative overflow-hidden"
+      className="py-20"
       style={{
-        background: 'hsl(var(--background))'
+        background: 'hsl(var(--section-experience))'
       }}
     >
-      {/* Moving Background Elements */}
-      <div className="floating-element w-24 h-24 bg-accent/20 rounded-full" style={{ top: '10%', left: '5%' }}></div>
-      <div className="floating-element w-16 h-16 bg-accent/20 rounded-full" style={{ top: '60%', right: '10%' }}></div>
-      <div className="floating-element w-20 h-20 bg-accent/20 rounded-full" style={{ top: '80%', left: '20%' }}></div>
-      <div className="particle w-2 h-2" style={{ left: '10%' }}></div>
-      <div className="particle w-3 h-3" style={{ left: '30%' }}></div>
-      <div className="particle w-1 h-1" style={{ left: '60%' }}></div>
-      <div className="particle w-2 h-2" style={{ left: '80%' }}></div>
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary font-playfair">Professional Experience</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Driving data-driven decisions across education and consulting sectors
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-primary font-playfair">
+            Professional Experience
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-lora">
+            Driving data-driven decisions across education, technology, and consulting sectors
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto space-y-8">
+        <div className="max-w-5xl mx-auto space-y-8">
           {experiences.map((exp, index) => (
-            <Card key={index} className="group glass hover:bg-accent/10 transition-all duration-300 hover:scale-[1.02]">
+            <Card key={index} className="glass hover:shadow-lg transition-all duration-300">
               <CardHeader>
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                   <div>
-                    <CardTitle className="text-xl group-hover:text-primary transition-colors">
+                    <CardTitle className="text-2xl font-bold text-foreground font-playfair">
                       {exp.title}
                     </CardTitle>
-                    <p className="text-lg font-semibold text-primary">{exp.company}</p>
+                    <p className="text-xl font-semibold text-primary mt-1">{exp.company}</p>
                   </div>
                   <div className="flex flex-col md:items-end gap-2">
-                    <div className="flex items-center text-sm text-muted-foreground">
+                    <div className="flex items-center text-sm text-muted-foreground font-courier">
                       <Calendar className="w-4 h-4 mr-2" />
                       {exp.period}
                     </div>
@@ -111,13 +89,13 @@ export function Experience() {
                   {exp.description.map((item, idx) => (
                     <li key={idx} className="flex items-start">
                       <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                      <span className="text-muted-foreground">{item}</span>
+                      <span className="text-foreground leading-relaxed">{item}</span>
                     </li>
                   ))}
                 </ul>
                 <div className="flex flex-wrap gap-2">
                   {exp.skills.map((skill, idx) => (
-                    <Badge key={idx} variant="secondary" className="text-xs">
+                    <Badge key={idx} variant="secondary" className="text-xs font-courier">
                       {skill}
                     </Badge>
                   ))}
