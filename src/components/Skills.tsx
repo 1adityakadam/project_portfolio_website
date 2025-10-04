@@ -54,8 +54,8 @@ export function Skills() {
     >
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-primary font-playfair">Skills & Expertise</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-lora">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-primary font-courier">Skills & Expertise</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-courier">
             Technical proficiencies spanning the entire data science workflow
           </p>
         </div>

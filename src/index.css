@@ -15,35 +15,35 @@
     --popover: 0 0% 100%;
     --popover-foreground: 210 24% 16%;
 
-    --primary: 210 100% 45%;
+    --primary: 210 100% 35%;
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 210 100% 40%;
+    --primary-hover: 210 100% 30%;
 
-    --secondary: 210 15% 92%;
+    --secondary: 210 20% 85%;
     --secondary-foreground: 210 24% 16%;
 
-    --muted: 210 15% 95%;
-    --muted-foreground: 210 12% 45%;
+    --muted: 210 20% 88%;
+    --muted-foreground: 210 15% 40%;
 
-    --accent: 210 15% 90%;
+    --accent: 210 20% 82%;
     --accent-foreground: 210 24% 16%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 15% 88%;
-    --input: 210 15% 88%;
-    --ring: 210 100% 45%;
+    --border: 210 20% 80%;
+    --input: 210 20% 80%;
+    --ring: 210 100% 35%;
 
     --radius: 0.5rem;
 
-    /* Section backgrounds - varying blue shades */
-    --section-hero: 210 30% 96%;
-    --section-experience: 210 25% 94%;
-    --section-projects: 210 30% 97%;
-    --section-skills: 210 25% 95%;
-    --section-education: 210 30% 96%;
-    --section-contact: 210 25% 94%;
+    /* Section backgrounds - darker varying blue shades */
+    --section-hero: 210 35% 88%;
+    --section-experience: 210 30% 85%;
+    --section-projects: 210 35% 90%;
+    --section-skills: 210 30% 87%;
+    --section-education: 210 35% 88%;
+    --section-contact: 210 30% 85%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -114,7 +114,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-lora;
+    @apply bg-background text-foreground font-courier;
   }
 }
 

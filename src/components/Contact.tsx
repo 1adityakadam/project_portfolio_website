@@ -7,8 +7,8 @@ export function Contact() {
     <section id="contact" className="py-20" style={{ background: 'hsl(var(--section-contact))' }}>
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-primary font-playfair">Let's Connect</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-lora">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-primary font-courier">Let's Connect</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-courier">
             Ready to collaborate on data science projects or discuss opportunities? I'd love to hear from you.
           </p>
         </div>

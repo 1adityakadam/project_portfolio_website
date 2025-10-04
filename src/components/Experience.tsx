@@ -53,10 +53,10 @@ export function Experience() {
     >
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-primary font-playfair">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-primary font-courier">
             Professional Experience
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-lora">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-courier">
             Driving data-driven decisions across education, technology, and consulting sectors
           </p>
         </div>
@@ -67,7 +67,7 @@ export function Experience() {
               <CardHeader>
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                   <div>
-                    <CardTitle className="text-2xl font-bold text-foreground font-playfair">
+                    <CardTitle className="text-2xl font-bold text-foreground font-courier">
                       {exp.title}
                     </CardTitle>
                     <p className="text-xl font-semibold text-primary mt-1">{exp.company}</p>

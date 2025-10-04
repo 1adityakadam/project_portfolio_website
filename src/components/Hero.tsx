@@ -9,14 +9,14 @@ export function Hero() {
     >
       {/* Large Typography Name */}
       <div className="text-center mb-12">
-        <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tight leading-none font-playfair text-primary mb-6">
+        <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tight leading-none font-courier text-primary mb-6">
           ADITYA KADAM
         </h1>
       </div>
 
       {/* Resume-based Introduction */}
       <div className="max-w-4xl text-center">
-        <p className="text-xl md:text-2xl text-foreground leading-relaxed font-lora">
+        <p className="text-xl md:text-2xl text-foreground leading-relaxed font-courier">
           I'm a Data Scientist and MS Data Science candidate at Indiana University Bloomington, 
           with 2+ years of experience driving data-driven insights across supply chain, operations, 
           and analytics engineering. I've successfully completed{" "}
