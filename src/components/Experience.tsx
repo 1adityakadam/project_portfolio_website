@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Calendar, MapPin } from "lucide-react"
+import { CodeBlock } from "@/components/CodeBlock"
 
 export function Experience() {
   const experiences = [
@@ -52,37 +53,18 @@ export function Experience() {
         </div>
 
         {/* Code cells - Experience entries */}
-        {experiences.map((exp, index) => (
-          <div key={index} className="colab-code-cell ml-12 mb-6">
-            <div className="space-y-3">
-              <div className="code-comment text-lg font-bold">
-                # {exp.title} | {exp.company}
-              </div>
-              <div className="code-comment text-sm">
-                # {exp.period} | {exp.location}
-              </div>
-              <div className="code-string mt-4">
-                '''
-              </div>
-              {exp.description.map((item, idx) => (
-                <div key={idx} className="pl-4 code-string">
-                  • {item}
-                </div>
-              ))}
-              <div className="code-string">
-                '''
-              </div>
-              <div className="mt-4 flex flex-wrap gap-2">
-                <span className="code-comment"># Skills:</span>
-                {exp.skills.map((skill, idx) => (
-                  <span key={idx} className="text-foreground">
-                    {skill}{idx < exp.skills.length - 1 ? "," : ""}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        ))}
+        {experiences.map((exp, index) => {
+          const code = `# ${exp.title} | ${exp.company}\n# ${exp.period} | ${exp.location}\n'''\n  ${exp.description.map(d => `• ${d}`).join("\n  ")}\n'''\n# Skills: ${exp.skills.join(', ')}`
+          return (
+            <CodeBlock
+              key={index}
+              className="colab-code-cell ml-12 mb-6 flex gap-4 group"
+              code={code}
+              executionNumber={index + 1}
+              onExecute={() => {}}
+            />
+          )
+        })}
       </div>
     </section>
   )

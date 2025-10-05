@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { GraduationCap, Calendar, MapPin, BookOpen } from "lucide-react"
+import { CodeBlock } from "@/components/CodeBlock"
 
 export function Education() {
   const education = [
@@ -47,40 +48,19 @@ export function Education() {
         </div>
 
         {/* Code cells - Education entries */}
-        {education.map((edu, index) => (
-          <div key={index} className="colab-code-cell ml-12 mb-6">
-            <div className="space-y-3">
-              <div className="code-comment text-lg font-bold">
-                # {edu.degree}
-              </div>
-              <div className="code-comment text-base">
-                # {edu.institution} | {edu.location}
-              </div>
-              <div className="code-comment text-sm">
-                # {edu.period} | Status: {edu.status}
-              </div>
-              <div className="code-string mt-4">
-                '''
-              </div>
-              <div className="pl-4 code-string">
-                {edu.description}
-              </div>
-              <div className="pl-4 code-string mt-4">
-                <div className="font-bold mb-2">Relevant Coursework:</div>
-                <div className="flex flex-wrap gap-2">
-                  {edu.relevantCourses.map((course, idx) => (
-                    <span key={idx}>
-                      {course}{idx < edu.relevantCourses.length - 1 ? " |" : ""}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div className="code-string">
-                '''
-              </div>
-            </div>
-          </div>
-        ))}
+        {education.map((edu, index) => {
+          const coursework = edu.relevantCourses.map((c, i) => `${i < edu.relevantCourses.length - 1 ? c + ' |' : c}`).join(' ')
+          const code = `# ${edu.degree}\n# ${edu.institution} | ${edu.location}\n# ${edu.period} | Status: ${edu.status}\n'''\n  ${edu.description}\n  Relevant Coursework: ${coursework}\n'''`
+          return (
+            <CodeBlock
+              key={index}
+              className="colab-code-cell ml-12 mb-6 flex gap-4 group"
+              code={code}
+              executionNumber={index + 1}
+              onExecute={() => {}}
+            />
+          )
+        })}
       </div>
     </section>
   )

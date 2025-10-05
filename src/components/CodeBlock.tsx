@@ -5,11 +5,12 @@ interface CodeBlockProps {
   code: string;
   executionNumber: number;
   onExecute: () => void;
+  className?: string;
 }
 
 type ExecutionState = "idle" | "playing" | "stopping" | "completed";
 
-export const CodeBlock = ({ code, executionNumber, onExecute }: CodeBlockProps) => {
+export const CodeBlock = ({ code, executionNumber, onExecute, className }: CodeBlockProps) => {
   const [state, setState] = useState<ExecutionState>("idle");
 
   const handleClick = () => {
@@ -26,7 +27,7 @@ export const CodeBlock = ({ code, executionNumber, onExecute }: CodeBlockProps) 
   };
 
   return (
-    <div className="flex gap-4 group">
+    <div className={className ? className : "flex gap-4 group"}>
       <div className="flex flex-col items-center gap-2 pt-3">
         <div className="text-muted-foreground font-mono text-sm min-w-[40px] text-center">
           {state === "completed" ? (

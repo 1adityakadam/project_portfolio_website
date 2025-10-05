@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Github, Linkedin, Mail, Send } from "lucide-react"
+import { CodeBlock } from "@/components/CodeBlock"
 
 export function Contact() {
   return (
@@ -12,49 +13,17 @@ export function Contact() {
         </div>
 
         {/* Code cell - Contact information */}
-        <div className="colab-code-cell ml-12">
-          <div className="space-y-3">
-            <div className="code-comment text-lg font-bold">
-              # Contact Information
-            </div>
-            <div className="code-string">
-              '''
-            </div>
-            <div className="pl-4 space-y-3 code-string">
-              <a
-                href="mailto:askadam@iu.edu"
-                className="flex items-center gap-3 hover:text-primary transition-colors"
-              >
-                <Mail className="w-5 h-5" />
-                <span className="font-semibold">Email:</span>
-                <span>askadam@iu.edu</span>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/1adityakadam/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 hover:text-primary transition-colors"
-              >
-                <Linkedin className="w-5 h-5" />
-                <span className="font-semibold">LinkedIn:</span>
-                <span>/in/1adityakadam</span>
-              </a>
-              <a
-                href="https://github.com/1adityakadam"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 hover:text-primary transition-colors"
-              >
-                <Github className="w-5 h-5" />
-                <span className="font-semibold">GitHub:</span>
-                <span>/1adityakadam</span>
-              </a>
-            </div>
-            <div className="code-string">
-              '''
-            </div>
-          </div>
-        </div>
+        {(() => {
+          const code = `# Contact Information\n'''\n  Email: askadam@iu.edu\n  LinkedIn: /in/1adityakadam\n  GitHub: /1adityakadam\n'''`
+          return (
+            <CodeBlock
+              className="colab-code-cell ml-12 flex gap-4 group"
+              code={code}
+              executionNumber={1}
+              onExecute={() => {}}
+            />
+          )
+        })()}
       </div>
     </section>
   )

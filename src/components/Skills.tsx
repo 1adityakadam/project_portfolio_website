@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Code, Database, BarChart3, Wrench, Award } from "lucide-react"
+import { CodeBlock } from "@/components/CodeBlock"
 
 export function Skills() {
   const skillCategories = [
@@ -53,29 +54,18 @@ export function Skills() {
         </div>
 
         {/* Code cells - Skill categories */}
-        {skillCategories.map((category, index) => (
-          <div key={index} className="colab-code-cell ml-12 mb-4">
-            <div className="space-y-2">
-              <div className="code-comment text-lg font-bold flex items-center gap-2">
-                {category.icon}
-                # {category.title}
-              </div>
-              <div className="code-string">
-                '''
-              </div>
-              <div className="pl-4 code-string flex flex-wrap gap-2">
-                {category.skills.map((skill, idx) => (
-                  <span key={idx}>
-                    {skill}{idx < category.skills.length - 1 ? " |" : ""}
-                  </span>
-                ))}
-              </div>
-              <div className="code-string">
-                '''
-              </div>
-            </div>
-          </div>
-        ))}
+        {skillCategories.map((category, index) => {
+          const code = `# ${category.title}\n'''\n  ${category.skills.map((s, i) => `${i < category.skills.length - 1 ? s + ' |' : s}`).join(' ')}\n'''`
+          return (
+            <CodeBlock
+              key={index}
+              className="colab-code-cell ml-12 mb-4 flex gap-4 group"
+              code={code}
+              executionNumber={index + 1}
+              onExecute={() => {}}
+            />
+          )
+        })}
 
         {/* Text cell - Certifications heading */}
         <div className="colab-text-cell mb-4 mt-8">
@@ -86,24 +76,17 @@ export function Skills() {
         </div>
 
         {/* Code cell - Certifications */}
-        <div className="colab-code-cell ml-12">
-          <div className="space-y-2">
-            <div className="code-comment text-lg font-bold">
-              # Professional Certifications
-            </div>
-            <div className="code-string">
-              '''
-            </div>
-            {certifications.map((cert, index) => (
-              <div key={index} className="pl-4 code-string">
-                {index + 1}. {cert}
-              </div>
-            ))}
-            <div className="code-string">
-              '''
-            </div>
-          </div>
-        </div>
+        {(() => {
+          const code = `# Professional Certifications\n'''\n  ${certifications.map((c, i) => `${i + 1}. ${c}`).join("\n  ")}\n'''`
+          return (
+            <CodeBlock
+              className="colab-code-cell ml-12 flex gap-4 group"
+              code={code}
+              executionNumber={skillCategories.length + 1}
+              onExecute={() => {}}
+            />
+          )
+        })()}
       </div>
     </section>
   )
