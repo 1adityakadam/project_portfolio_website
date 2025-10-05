@@ -35,12 +35,7 @@ export function Hero() {
             </a>
             {" "}spanning machine learning, NLP, and data visualization, specializing in transforming 
             raw data into{" "}
-            <a 
-              href="#contact" 
-              className="text-primary font-bold hover:underline"
-            >
-              actionable
-            </a>
+            actionable
             {" "}business intelligence through advanced analytics and interactive 
             dashboards.
           </p>
