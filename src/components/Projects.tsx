@@ -14,7 +14,7 @@ export function Projects() {
       description: "A concise, interactive tool for exploring the historical lineage of U.S. higher education institutions using Carnegie Classification data from 1973–2021.",
       technologies: ["Python", "Pandas", "Interactive Dashboards", "Data Visualization", "Carnegie Classification"],
       github: "https://github.com/1adityakadam/Carnegie-classifications-ancestry-grid",
-      image: "/lovable-uploads/c0b3cfa2-690d-4800-ac8a-0162be93af29.png",
+      image: "/lovable-uploads/b7cc5e19-b229-483c-8f53-e52201f72fbb.png",
     },
     {
       title: "USDA Food Distribution Program Analysis",
@@ -38,7 +38,7 @@ export function Projects() {
       technologies: ["Power BI", "Python", "GPS Data Integration", "APC Systems", "Data Analytics"],
       period: "12-month analysis",
       github: "https://github.com/1adityakadam/Indygo_OTP_analysis",
-      image: "/lovable-uploads/03bc8d04-9fea-4cf3-8a55-0b284c26dc68.png",
+      image: "/lovable-uploads/8fdc002a-18d3-4999-81b4-79369449b3b5.png",
     },
     {
       title: "Sports Analytics: Cricket Data Insights",
@@ -46,7 +46,7 @@ export function Projects() {
       technologies: ["Power BI", "Python", "Pandas", "BrightData", "Web Scraping", "JSON Processing", "Power Query", "DAX"],
       period: "T20 World Cup 2022",
       github: "https://github.com/1adityakadam/Sports_Analytics_Cricket_Data_Insights",
-      image: "/lovable-uploads/b7cc5e19-b229-483c-8f53-e52201f72fbb.png",
+      image: "/lovable-uploads/c0b3cfa2-690d-4800-ac8a-0162be93af29.png",
     },
     {
       title: "Air Pollution Forecasting using LSTM",
