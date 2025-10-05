@@ -11,35 +11,35 @@ export function Projects() {
       title: "Ancestry Grid for Carnegie Classification of Institutions of Higher Education",
       description: "A concise, interactive tool for exploring the historical lineage of U.S. higher education institutions using Carnegie Classification data from 1973–2021.",
       technologies: ["Python", "Pandas", "Interactive Dashboards", "Data Visualization", "Carnegie Classification"],
-      github: "https://github.com/1adityakadam",
+      github: "https://github.com/1adityakadam/Carnegie-classifications-ancestry-grid",
     },
     {
       title: "USDA Food Distribution Program Analysis",
       description: "Comprehensive analysis of USDA Food and Nutrition Service's food distribution programs, focusing on State of Origin data for USDA Foods products from FY11 to FY23.",
       technologies: ["Python", "Tableau", "Pandas", "Data Visualization", "USDA APIs"],
       period: "FY11 - FY23",
-      github: "https://github.com/1adityakadam",
+      github: "https://github.com/1adityakadam/USDA_food_distribution_analysis",
     },
     {
       title: "Uber Data Analytics End-to-End Project",
       description: "Comprehensive data analytics project using TLC Trip Record Data from November 2024, implementing end-to-end pipeline with Google BigQuery and Looker Studio.",
       technologies: ["Python", "Mage-AI", "Google BigQuery", "Google Looker Studio", "Google Cloud Storage", "Pandas", "NumPy"],
       period: "Nov 2024",
-      github: "https://github.com/1adityakadam",
+      github: "https://github.com/1adityakadam/Uber_data_analytics",
     },
     {
       title: "IndyGo On-Time Performance Analysis",
       description: "Comprehensive Power BI dashboard analyzing IndyGo's on-time performance by measuring the percentage of trips operating within scheduled time thresholds.",
       technologies: ["Power BI", "Python", "GPS Data Integration", "APC Systems", "Data Analytics"],
       period: "12-month analysis",
-      github: "https://github.com/1adityakadam",
+      github: "https://github.com/1adityakadam/Indygo_OTP_analysis",
     },
     {
       title: "Sports Analytics: Cricket Data Insights",
       description: "Comprehensive analysis of T20 Cricket World Cup 2022 focused on strategic team selection and player performance evaluation for England's championship victory against Pakistan.",
       technologies: ["Power BI", "Python", "Pandas", "BrightData", "Web Scraping", "JSON Processing", "Power Query", "DAX"],
       period: "T20 World Cup 2022",
-      github: "https://github.com/1adityakadam",
+      github: "https://github.com/1adityakadam/Sports_Analytics_Cricket_Data_Insights",
     },
     {
       title: "Air Pollution Forecasting using LSTM",
@@ -113,14 +113,14 @@ export function Projects() {
                     <div className="code-string">
                       '''
                     </div>
-                    <div className="pl-4 text-foreground text-sm">
+                    <div className="pl-4 code-string text-sm">
                       {project.description}
                     </div>
                     <div className="code-string">
                       '''
                     </div>
-                    <div className="flex flex-wrap gap-2 mt-3">
-                      <span className="code-comment"># Tech:</span>
+                    <div className="flex flex-wrap items-center gap-2 mt-3">
+                      <span className="code-comment whitespace-nowrap"># Tech:</span>
                       {project.technologies.slice(0, 4).map((tech, idx) => {
                         const isLast = idx >= Math.min(project.technologies.length, 4) - 1;
                         return (
@@ -162,14 +162,14 @@ export function Projects() {
                     <div className="code-string">
                       '''
                     </div>
-                    <div className="pl-4 text-foreground text-sm">
+                    <div className="pl-4 code-string text-sm">
                       {project.description}
                     </div>
                     <div className="code-string">
                       '''
                     </div>
-                    <div className="flex flex-wrap gap-2 mt-3">
-                      <span className="code-comment"># Tech:</span>
+                    <div className="flex flex-wrap items-center gap-2 mt-3">
+                      <span className="code-comment whitespace-nowrap"># Tech:</span>
                       {project.technologies.slice(0, 4).map((tech, idx) => {
                         const isLast = idx >= Math.min(project.technologies.length, 4) - 1;
                         return (
@@ -236,7 +236,7 @@ export function Projects() {
                   <div className="code-string">
                     '''
                   </div>
-                  <div className="pl-4 text-foreground">
+                  <div className="pl-4 code-string">
                     {project.description}
                   </div>
                   <div className="code-string">

@@ -138,7 +138,7 @@
     position: relative;
   }
 
-  .colab-code-cell::before {
+  .colab-code-cell.ml-12::before {
     content: "[ ]";
     position: absolute;
     left: -3rem;

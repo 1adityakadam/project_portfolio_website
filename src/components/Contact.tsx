@@ -20,10 +20,10 @@ export function Contact() {
             <div className="code-string">
               '''
             </div>
-            <div className="pl-4 space-y-3">
+            <div className="pl-4 space-y-3 code-string">
               <a
                 href="mailto:askadam@iu.edu"
-                className="flex items-center gap-3 text-foreground hover:text-primary transition-colors"
+                className="flex items-center gap-3 hover:text-primary transition-colors"
               >
                 <Mail className="w-5 h-5" />
                 <span className="font-semibold">Email:</span>
@@ -33,7 +33,7 @@ export function Contact() {
                 href="https://www.linkedin.com/in/1adityakadam/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-foreground hover:text-primary transition-colors"
+                className="flex items-center gap-3 hover:text-primary transition-colors"
               >
                 <Linkedin className="w-5 h-5" />
                 <span className="font-semibold">LinkedIn:</span>
@@ -43,7 +43,7 @@ export function Contact() {
                 href="https://github.com/1adityakadam"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-foreground hover:text-primary transition-colors"
+                className="flex items-center gap-3 hover:text-primary transition-colors"
               >
                 <Github className="w-5 h-5" />
                 <span className="font-semibold">GitHub:</span>

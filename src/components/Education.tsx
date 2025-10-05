@@ -62,10 +62,10 @@ export function Education() {
               <div className="code-string mt-4">
                 '''
               </div>
-              <div className="pl-4 text-foreground">
+              <div className="pl-4 code-string">
                 {edu.description}
               </div>
-              <div className="pl-4 text-foreground mt-4">
+              <div className="pl-4 code-string mt-4">
                 <div className="font-bold mb-2">Relevant Coursework:</div>
                 <div className="flex flex-wrap gap-2">
                   {edu.relevantCourses.map((course, idx) => (

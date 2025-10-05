@@ -65,7 +65,7 @@ export function Experience() {
                 '''
               </div>
               {exp.description.map((item, idx) => (
-                <div key={idx} className="pl-4 text-foreground">
+                <div key={idx} className="pl-4 code-string">
                   • {item}
                 </div>
               ))}

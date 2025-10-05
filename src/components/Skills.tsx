@@ -63,7 +63,7 @@ export function Skills() {
               <div className="code-string">
                 '''
               </div>
-              <div className="pl-4 text-foreground flex flex-wrap gap-2">
+              <div className="pl-4 code-string flex flex-wrap gap-2">
                 {category.skills.map((skill, idx) => (
                   <span key={idx}>
                     {skill}{idx < category.skills.length - 1 ? " |" : ""}
@@ -95,7 +95,7 @@ export function Skills() {
               '''
             </div>
             {certifications.map((cert, index) => (
-              <div key={index} className="pl-4 text-foreground">
+              <div key={index} className="pl-4 code-string">
                 {index + 1}. {cert}
               </div>
             ))}
