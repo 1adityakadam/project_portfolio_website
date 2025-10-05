@@ -6,11 +6,12 @@ interface CodeBlockProps {
   executionNumber: number;
   onExecute: () => void;
   className?: string;
+  indicatorLeft?: string; // CSS length for outside [ ] position
 }
 
 type ExecutionState = "idle" | "playing" | "stopping" | "completed";
 
-export const CodeBlock = ({ code, executionNumber, onExecute, className }: CodeBlockProps) => {
+export const CodeBlock = ({ code, executionNumber, onExecute, className, indicatorLeft }: CodeBlockProps) => {
   const [state, setState] = useState<ExecutionState>("idle");
 
   const handleClick = () => {
@@ -57,7 +58,7 @@ export const CodeBlock = ({ code, executionNumber, onExecute, className }: CodeB
   return (
     <div className={(className ? className : "flex gap-4 group") + " relative"}>
       {/* Indicator outside to the left of the code cell */}
-      <div className="absolute -left-12 top-2 text-muted-foreground font-mono text-sm min-w-[40px] text-center">
+      <div className="absolute top-2 text-muted-foreground font-mono text-sm min-w-[40px] text-center" style={{ left: indicatorLeft ?? '-3rem' }}>
         {state === "completed" ? (
           <div className="flex flex-col items-center gap-1">
             <div className="flex items-center gap-1 text-success">

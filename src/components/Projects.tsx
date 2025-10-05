@@ -116,7 +116,11 @@ export function Projects() {
                     className="colab-code-cell ml-12 w-[450px] flex gap-4 group"
                     code={buildProjectSnippet(project)}
                     executionNumber={index + 1}
-                    onExecute={() => {}}
+                    onExecute={() => {
+                      if (project.github) {
+                        window.open(project.github, '_blank', 'noopener,noreferrer')
+                      }
+                    }}
                   />
                   {project.github && (
                     <div className="mt-2">
@@ -146,7 +150,11 @@ export function Projects() {
                     className="colab-code-cell ml-12 w-[450px] flex gap-4 group"
                     code={buildProjectSnippet(project)}
                     executionNumber={index + 1}
-                    onExecute={() => {}}
+                    onExecute={() => {
+                      if (project.github) {
+                        window.open(project.github, '_blank', 'noopener,noreferrer')
+                      }
+                    }}
                   />
                   {project.github && (
                     <div className="mt-2">
@@ -191,11 +199,16 @@ export function Projects() {
         {showAll && (
           <div className="space-y-4 animate-fade-in">
             {projects.map((project, index) => (
-              <div key={`static-${index}`} className="colab-code-cell ml-12">
+              <div key={`static-${index}`} className="colab-code-cell ml-12 relative">
                 <CodeBlock
                   code={`# ${project.title}${project.period ? `\n# Period: ${project.period}` : ''}\n'''\n  ${project.description}\n'''\n# Technologies: ${project.technologies.join(' | ')}`}
                   executionNumber={index + 1}
-                  onExecute={() => {}}
+                  onExecute={() => {
+                    if (project.github) {
+                      window.open(project.github, '_blank', 'noopener,noreferrer')
+                    }
+                  }}
+                  indicatorLeft="-6.5rem" /* ~10mm to the left */
                 />
                 {project.github && (
                   <div className="mt-3">
