@@ -143,12 +143,8 @@
   }
 
   .colab-code-cell.ml-12::before {
-    content: "[ ]";
-    position: absolute;
-    left: -3rem;
-    top: 0.5rem;
-    color: hsl(var(--muted-foreground));
-    font-size: 0.875rem;
+    content: "";
+    display: none;
   }
 
   .code-comment {

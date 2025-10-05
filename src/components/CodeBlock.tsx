@@ -55,8 +55,9 @@ export const CodeBlock = ({ code, executionNumber, onExecute, className }: CodeB
   }, [code]);
 
   return (
-    <div className={className ? className : "flex gap-4 group"}>
-      <div className="flex flex-col items-center gap-2 pt-3">
+    <div className={className ? className : "flex gap-4 group relative"}>
+      {/* External execution indicator positioned where the old [ ] lived */}
+      <div className="absolute -left-12 top-2 text-muted-foreground font-mono text-sm min-w-[40px] text-center">
         <div className="text-muted-foreground font-mono text-sm min-w-[40px] text-center">
           {state === "completed" ? (
             <div className="flex flex-col items-center gap-1">
@@ -71,8 +72,9 @@ export const CodeBlock = ({ code, executionNumber, onExecute, className }: CodeB
           )}
         </div>
 
+        {/* Keep play button at the same spot next to the execution indicator */}
         {state !== "completed" && (
-          <button onClick={handleClick} disabled={state !== "idle"} className="relative group/btn">
+          <button onClick={handleClick} disabled={state !== "idle"} className="relative group/btn ml-2">
             <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center transition-all hover:bg-secondary">
               {state === "idle" && <Play className="w-5 h-5 text-muted-foreground fill-current pl-0.5" />}
               {state === "playing" && <Play className="w-5 h-5 text-accent fill-current pl-0.5" />}
