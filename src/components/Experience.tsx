@@ -44,66 +44,45 @@ export function Experience() {
   ]
 
   return (
-    <section 
-      id="experience" 
-      className="py-20"
-      style={{
-        background: 'hsl(var(--section-experience))'
-      }}
-    >
-      <div className="container">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-primary font-courier">
-            Professional Experience
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-courier">
-            Driving data-driven decisions across education, technology, and consulting sectors
-          </p>
+    <section id="experience" className="py-12 px-4">
+      <div className="max-w-7xl mx-auto">
+        {/* Text cell - Section heading */}
+        <div className="colab-text-cell mb-4">
+          <h2 className="text-3xl font-bold">Professional Experience</h2>
         </div>
 
-        <div className="max-w-5xl mx-auto space-y-8">
-          {experiences.map((exp, index) => (
-            <Card key={index} className="glass hover:shadow-lg transition-all duration-300">
-              <CardHeader>
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                  <div>
-                    <CardTitle className="text-2xl font-bold text-foreground font-courier">
-                      {exp.title}
-                    </CardTitle>
-                    <p className="text-xl font-semibold text-primary mt-1">{exp.company}</p>
-                  </div>
-                  <div className="flex flex-col md:items-end gap-2">
-                    <div className="flex items-center text-sm text-muted-foreground font-courier">
-                      <Calendar className="w-4 h-4 mr-2" />
-                      {exp.period}
-                    </div>
-                    <div className="flex items-center text-sm text-muted-foreground">
-                      <MapPin className="w-4 h-4 mr-2" />
-                      {exp.location}
-                    </div>
-                  </div>
+        {/* Code cells - Experience entries */}
+        {experiences.map((exp, index) => (
+          <div key={index} className="colab-code-cell ml-12 mb-6">
+            <div className="space-y-3">
+              <div className="code-comment text-lg font-bold">
+                # {exp.title} | {exp.company}
+              </div>
+              <div className="code-comment text-sm">
+                # {exp.period} | {exp.location}
+              </div>
+              <div className="code-string mt-4">
+                '''
+              </div>
+              {exp.description.map((item, idx) => (
+                <div key={idx} className="pl-4 text-foreground">
+                  • {item}
                 </div>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3 mb-6">
-                  {exp.description.map((item, idx) => (
-                    <li key={idx} className="flex items-start">
-                      <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                      <span className="text-foreground leading-relaxed">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="flex flex-wrap gap-2">
-                  {exp.skills.map((skill, idx) => (
-                    <Badge key={idx} variant="secondary" className="text-xs font-courier">
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+              ))}
+              <div className="code-string">
+                '''
+              </div>
+              <div className="mt-4 flex flex-wrap gap-2">
+                <span className="code-comment"># Skills:</span>
+                {exp.skills.map((skill, idx) => (
+                  <span key={idx} className="text-foreground">
+                    {skill}{idx < exp.skills.length - 1 ? "," : ""}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   )

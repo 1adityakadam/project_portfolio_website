@@ -2,48 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Modern Data Science Portfolio Design System */
+/* Google Colab Notebook Design System */
 
 @layer base {
   :root {
-    --background: 210 20% 98%;
-    --foreground: 210 24% 16%;
+    --background: 250 10% 96%;
+    --foreground: 0 0% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 24% 16%;
+    --card-foreground: 0 0% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 24% 16%;
+    --popover-foreground: 0 0% 10%;
 
-    --primary: 210 100% 35%;
+    --primary: 210 100% 50%;
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 210 100% 30%;
+    --primary-hover: 210 100% 45%;
 
     --secondary: 210 20% 85%;
-    --secondary-foreground: 210 24% 16%;
+    --secondary-foreground: 0 0% 10%;
 
     --muted: 210 20% 88%;
     --muted-foreground: 210 15% 40%;
 
     --accent: 210 20% 82%;
-    --accent-foreground: 210 24% 16%;
+    --accent-foreground: 0 0% 10%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 20% 80%;
-    --input: 210 20% 80%;
-    --ring: 210 100% 35%;
+    --border: 220 10% 85%;
+    --input: 220 10% 85%;
+    --ring: 210 100% 50%;
 
     --radius: 0.5rem;
 
-    /* Section backgrounds - darker varying blue shades */
-    --section-hero: 210 35% 88%;
-    --section-experience: 210 30% 85%;
-    --section-projects: 210 35% 90%;
-    --section-skills: 210 30% 87%;
-    --section-education: 210 35% 88%;
-    --section-contact: 210 30% 85%;
+    /* Colab-specific colors */
+    --colab-text-cell: 0 0% 100%;
+    --colab-code-cell: 240 10% 98%;
+    --colab-comment: 140 40% 45%;
+    --colab-string: 210 100% 40%;
+    --colab-border: 220 10% 90%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -56,42 +55,41 @@
   }
 
   .dark {
-    --background: 215 28% 17%;
-    --foreground: 200 50% 85%;
+    --background: 0 0% 16%;
+    --foreground: 0 0% 95%;
 
-    --card: 215 25% 20%;
-    --card-foreground: 200 50% 85%;
+    --card: 0 0% 20%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 215 25% 20%;
-    --popover-foreground: 200 50% 85%;
+    --popover: 0 0% 20%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 200 80% 70%;
-    --primary-foreground: 215 28% 17%;
-    --primary-hover: 200 80% 75%;
+    --primary: 210 100% 65%;
+    --primary-foreground: 0 0% 10%;
+    --primary-hover: 210 100% 70%;
 
-    --secondary: 215 20% 25%;
-    --secondary-foreground: 200 50% 85%;
+    --secondary: 0 0% 25%;
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 215 20% 22%;
-    --muted-foreground: 200 15% 60%;
+    --muted: 0 0% 22%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 215 20% 24%;
-    --accent-foreground: 200 50% 85%;
+    --accent: 0 0% 24%;
+    --accent-foreground: 0 0% 95%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 200 50% 85%;
+    --destructive-foreground: 0 0% 95%;
 
-    --border: 215 20% 28%;
-    --input: 215 20% 28%;
-    --ring: 200 80% 70%;
+    --border: 0 0% 28%;
+    --input: 0 0% 28%;
+    --ring: 210 100% 65%;
 
-    /* Section backgrounds - varying dark shades */
-    --section-hero: 215 28% 18%;
-    --section-experience: 215 26% 16%;
-    --section-projects: 215 28% 19%;
-    --section-skills: 215 26% 17%;
-    --section-education: 215 28% 18%;
-    --section-contact: 215 26% 16%;
+    /* Colab-specific dark colors */
+    --colab-text-cell: 0 0% 20%;
+    --colab-code-cell: 0 0% 14%;
+    --colab-comment: 140 40% 55%;
+    --colab-string: 35 100% 60%;
+    --colab-border: 0 0% 25%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -120,10 +118,40 @@
 
 /* Utility classes */
 @layer components {
-  .glass {
-    background: hsl(var(--card) / 0.8);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid hsl(var(--border));
+  .colab-text-cell {
+    background: hsl(var(--colab-text-cell));
+    border: 1px solid hsl(var(--colab-border));
+    border-radius: 0;
+    padding: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Courier Prime', monospace;
+  }
+
+  .colab-code-cell {
+    background: hsl(var(--colab-code-cell));
+    border: 1px solid hsl(var(--colab-border));
+    border-left: 3px solid hsl(var(--primary));
+    border-radius: 0;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    font-family: 'Courier Prime', monospace;
+    position: relative;
+  }
+
+  .colab-code-cell::before {
+    content: "[ ]";
+    position: absolute;
+    left: -3rem;
+    top: 0.5rem;
+    color: hsl(var(--muted-foreground));
+    font-size: 0.875rem;
+  }
+
+  .code-comment {
+    color: hsl(var(--colab-comment));
+  }
+
+  .code-string {
+    color: hsl(var(--colab-string));
   }
 }

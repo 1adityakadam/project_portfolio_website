@@ -4,52 +4,56 @@ import { Github, Linkedin, Mail, Send } from "lucide-react"
 
 export function Contact() {
   return (
-    <section id="contact" className="py-20" style={{ background: 'hsl(var(--section-contact))' }}>
-      <div className="container">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-primary font-courier">Let's Connect</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-courier">
-            Ready to collaborate on data science projects or discuss opportunities? I'd love to hear from you.
-          </p>
+    <section id="contact" className="py-12 px-4">
+      <div className="max-w-7xl mx-auto">
+        {/* Text cell - Section heading */}
+        <div className="colab-text-cell mb-4">
+          <h2 className="text-3xl font-bold">Let's Connect</h2>
         </div>
 
-        <div className="max-w-2xl mx-auto">
-          <Card className="glass hover:bg-accent/10 transition-all duration-300 hover:scale-[1.02]">
-            <CardContent className="space-y-6 pt-6">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <Button variant="outline" size="lg" className="h-16 flex-col gap-2 glass hover:bg-accent hover:text-accent-foreground transition-all duration-300" asChild>
-                  <a href="mailto:askadam@iu.edu" className="group">
-                    <Mail className="w-6 h-6 group-hover:text-primary transition-colors" />
-                    <span className="text-sm">Email Me</span>
-                  </a>
-                </Button>
-                <Button variant="outline" size="lg" className="h-16 flex-col gap-2 glass hover:bg-accent hover:text-accent-foreground transition-all duration-300" asChild>
-                  <a href="https://www.linkedin.com/in/1adityakadam/" target="_blank" rel="noopener noreferrer" className="group">
-                    <Linkedin className="w-6 h-6 group-hover:text-primary transition-colors" />
-                    <span className="text-sm">LinkedIn</span>
-                  </a>
-                </Button>
-                <Button variant="outline" size="lg" className="h-16 flex-col gap-2 glass hover:bg-accent hover:text-accent-foreground transition-all duration-300" asChild>
-                  <a href="https://github.com/1adityakadam" target="_blank" rel="noopener noreferrer" className="group">
-                    <Github className="w-6 h-6 group-hover:text-primary transition-colors" />
-                    <span className="text-sm">GitHub</span>
-                  </a>
-                </Button>
-              </div>
-              
-              <div className="text-center">
-                <p className="text-muted-foreground mb-4">
-                  Currently pursuing my Master's in Data Science at Indiana University Bloomington
-                </p>
-                <Button size="lg" className="group hover:scale-105 transition-all duration-300" asChild>
-                  <a href="mailto:askadam@iu.edu">
-                    Start a Conversation
-                    <Send className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </a>
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
+        {/* Code cell - Contact information */}
+        <div className="colab-code-cell ml-12">
+          <div className="space-y-3">
+            <div className="code-comment text-lg font-bold">
+              # Contact Information
+            </div>
+            <div className="code-string">
+              '''
+            </div>
+            <div className="pl-4 space-y-3">
+              <a
+                href="mailto:askadam@iu.edu"
+                className="flex items-center gap-3 text-foreground hover:text-primary transition-colors"
+              >
+                <Mail className="w-5 h-5" />
+                <span className="font-semibold">Email:</span>
+                <span>askadam@iu.edu</span>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/1adityakadam/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-foreground hover:text-primary transition-colors"
+              >
+                <Linkedin className="w-5 h-5" />
+                <span className="font-semibold">LinkedIn:</span>
+                <span>/in/1adityakadam</span>
+              </a>
+              <a
+                href="https://github.com/1adityakadam"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-foreground hover:text-primary transition-colors"
+              >
+                <Github className="w-5 h-5" />
+                <span className="font-semibold">GitHub:</span>
+                <span>/1adityakadam</span>
+              </a>
+            </div>
+            <div className="code-string">
+              '''
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -39,75 +39,48 @@ export function Education() {
   ]
 
   return (
-    <section 
-      id="education" 
-      className="py-20"
-      style={{
-        background: 'hsl(var(--section-education))'
-      }}
-    >
-      <div className="container">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-primary font-courier">Education</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-courier">
-            Academic foundation in data science and engineering principles
-          </p>
+    <section id="education" className="py-12 px-4">
+      <div className="max-w-7xl mx-auto">
+        {/* Text cell - Section heading */}
+        <div className="colab-text-cell mb-4">
+          <h2 className="text-3xl font-bold">Education</h2>
         </div>
 
-        <div className="max-w-4xl mx-auto space-y-8">
-          {education.map((edu, index) => (
-            <Card key={index} className="group glass hover:bg-accent/10 transition-all duration-300 hover:scale-[1.02]">
-              <CardHeader>
-                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-                  <div className="flex items-start gap-4">
-                    <div className="text-primary mt-1">
-                      <GraduationCap className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                        {edu.degree}
-                      </CardTitle>
-                      <p className="text-lg font-semibold text-primary mt-1">{edu.institution}</p>
-                    </div>
-                  </div>
-                  <div className="flex flex-col lg:items-end gap-2">
-                    <div className="flex items-center text-sm text-muted-foreground">
-                      <Calendar className="w-4 h-4 mr-2" />
-                      {edu.period}
-                    </div>
-                    <div className="flex items-center text-sm text-muted-foreground">
-                      <MapPin className="w-4 h-4 mr-2" />
-                      {edu.location}
-                    </div>
-                    <Badge 
-                      variant={edu.status === "In Progress" ? "default" : "secondary"}
-                      className="w-fit"
-                    >
-                      {edu.status}
-                    </Badge>
-                  </div>
+        {/* Code cells - Education entries */}
+        {education.map((edu, index) => (
+          <div key={index} className="colab-code-cell ml-12 mb-6">
+            <div className="space-y-3">
+              <div className="code-comment text-lg font-bold">
+                # {edu.degree}
+              </div>
+              <div className="code-comment text-base">
+                # {edu.institution} | {edu.location}
+              </div>
+              <div className="code-comment text-sm">
+                # {edu.period} | Status: {edu.status}
+              </div>
+              <div className="code-string mt-4">
+                '''
+              </div>
+              <div className="pl-4 text-foreground">
+                {edu.description}
+              </div>
+              <div className="pl-4 text-foreground mt-4">
+                <div className="font-bold mb-2">Relevant Coursework:</div>
+                <div className="flex flex-wrap gap-2">
+                  {edu.relevantCourses.map((course, idx) => (
+                    <span key={idx}>
+                      {course}{idx < edu.relevantCourses.length - 1 ? " |" : ""}
+                    </span>
+                  ))}
                 </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-6">{edu.description}</p>
-                
-                <div>
-                  <div className="flex items-center gap-2 mb-4">
-                    <BookOpen className="w-4 h-4 text-primary" />
-                    <h4 className="font-semibold">Relevant Coursework</h4>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {edu.relevantCourses.map((course, idx) => (
-                      <Badge key={idx} variant="outline" className="text-xs">
-                        {course}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+              </div>
+              <div className="code-string">
+                '''
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   )

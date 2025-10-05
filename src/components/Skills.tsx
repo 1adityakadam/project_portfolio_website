@@ -45,66 +45,64 @@ export function Skills() {
   ]
 
   return (
-    <section 
-      id="skills" 
-      className="py-20"
-      style={{
-        background: 'hsl(var(--section-skills))'
-      }}
-    >
-      <div className="container">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-primary font-courier">Skills & Expertise</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-courier">
-            Technical proficiencies spanning the entire data science workflow
-          </p>
+    <section id="skills" className="py-12 px-4">
+      <div className="max-w-7xl mx-auto">
+        {/* Text cell - Section heading */}
+        <div className="colab-text-cell mb-4">
+          <h2 className="text-3xl font-bold">Skills & Expertise</h2>
         </div>
 
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {skillCategories.map((category, index) => (
-              <Card key={index} className="group glass hover:bg-accent/10 transition-all duration-300 hover:scale-105">
-                <CardHeader className="pb-4">
-                  <CardTitle className="flex items-center gap-3 text-lg">
-                    <div className="text-primary">{category.icon}</div>
-                    {category.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {category.skills.map((skill, idx) => (
-                      <Badge 
-                        key={idx} 
-                        variant="secondary" 
-                        className="text-xs hover:bg-accent hover:text-accent-foreground transition-colors cursor-default"
-                      >
-                        {skill}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          <Card className="glass hover:bg-accent/10 transition-all duration-300">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-3 text-xl">
-                <Award className="w-6 h-6 text-primary" />
-                Certifications
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {certifications.map((cert, index) => (
-                  <div key={index} className="flex items-center gap-3 p-4 glass hover:bg-accent/10 transition-all duration-300 hover:scale-105 rounded-lg">
-                    <div className="w-2 h-2 bg-primary rounded-full"></div>
-                    <span className="font-medium">{cert}</span>
-                  </div>
+        {/* Code cells - Skill categories */}
+        {skillCategories.map((category, index) => (
+          <div key={index} className="colab-code-cell ml-12 mb-4">
+            <div className="space-y-2">
+              <div className="code-comment text-lg font-bold flex items-center gap-2">
+                {category.icon}
+                # {category.title}
+              </div>
+              <div className="code-string">
+                '''
+              </div>
+              <div className="pl-4 text-foreground flex flex-wrap gap-2">
+                {category.skills.map((skill, idx) => (
+                  <span key={idx}>
+                    {skill}{idx < category.skills.length - 1 ? " |" : ""}
+                  </span>
                 ))}
               </div>
-            </CardContent>
-          </Card>
+              <div className="code-string">
+                '''
+              </div>
+            </div>
+          </div>
+        ))}
+
+        {/* Text cell - Certifications heading */}
+        <div className="colab-text-cell mb-4 mt-8">
+          <h2 className="text-3xl font-bold flex items-center gap-3">
+            <Award className="w-8 h-8 text-primary" />
+            Certifications
+          </h2>
+        </div>
+
+        {/* Code cell - Certifications */}
+        <div className="colab-code-cell ml-12">
+          <div className="space-y-2">
+            <div className="code-comment text-lg font-bold">
+              # Professional Certifications
+            </div>
+            <div className="code-string">
+              '''
+            </div>
+            {certifications.map((cert, index) => (
+              <div key={index} className="pl-4 text-foreground">
+                {index + 1}. {cert}
+              </div>
+            ))}
+            <div className="code-string">
+              '''
+            </div>
+          </div>
         </div>
       </div>
     </section>
