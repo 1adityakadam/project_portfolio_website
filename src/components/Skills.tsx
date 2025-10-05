@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Code, Database, BarChart3, Wrench, Award } from "lucide-react"
+import { InteractiveTitle } from "@/components/InteractiveTitle"
 import { CodeBlock } from "@/components/CodeBlock"
 
 export function Skills() {
@@ -50,7 +51,7 @@ export function Skills() {
       <div className="max-w-7xl mx-auto">
         {/* Text cell - Section heading */}
         <div className="colab-text-cell mb-4">
-          <h2 className="text-3xl font-bold">Skills & Expertise</h2>
+          <InteractiveTitle text="Skills & Expertise" />
         </div>
 
         {/* Code cells - Skill categories */}
@@ -69,10 +70,10 @@ export function Skills() {
 
         {/* Text cell - Certifications heading */}
         <div className="colab-text-cell mb-4 mt-8">
-          <h2 className="text-3xl font-bold flex items-center gap-3">
+          <div className="flex items-center gap-3">
             <Award className="w-8 h-8 text-primary" />
-            Certifications
-          </h2>
+            <InteractiveTitle text="Certifications" />
+          </div>
         </div>
 
         {/* Code cell - Certifications */}

@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Calendar, MapPin } from "lucide-react"
+import { InteractiveTitle } from "@/components/InteractiveTitle"
 import { CodeBlock } from "@/components/CodeBlock"
 
 export function Experience() {
@@ -49,7 +50,7 @@ export function Experience() {
       <div className="max-w-7xl mx-auto">
         {/* Text cell - Section heading */}
         <div className="colab-text-cell mb-4">
-          <h2 className="text-3xl font-bold">Professional Experience</h2>
+          <InteractiveTitle text="Professional Experience" />
         </div>
 
         {/* Code cells - Experience entries */}

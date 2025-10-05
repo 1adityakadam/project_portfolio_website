@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { GraduationCap, Calendar, MapPin, BookOpen } from "lucide-react"
+import { InteractiveTitle } from "@/components/InteractiveTitle"
 import { CodeBlock } from "@/components/CodeBlock"
 
 export function Education() {
@@ -44,7 +45,7 @@ export function Education() {
       <div className="max-w-7xl mx-auto">
         {/* Text cell - Section heading */}
         <div className="colab-text-cell mb-4">
-          <h2 className="text-3xl font-bold">Education</h2>
+          <InteractiveTitle text="Education" />
         </div>
 
         {/* Code cells - Education entries */}

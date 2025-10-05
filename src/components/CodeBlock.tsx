@@ -96,8 +96,8 @@ export const CodeBlock = ({ code, executionNumber, onExecute, className, indicat
           <code className="text-sm font-mono text-foreground whitespace-pre-wrap break-words">
             {parsedLines.map((line, idx) => {
               if (line.className === "code-string") {
-                // Linkify URLs and emails while keeping orange color
-                const urlRegex = /(https?:\/\/[^\s]+|www\.[^\s]+|github\.com\/[^\s]+|[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g;
+                // Linkify URLs, mailto, and emails while keeping orange color
+                const urlRegex = /(mailto:[^\s]+|https?:\/\/[^\s]+|www\.[^\s]+|github\.com\/[^\s]+|[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g;
                 const parts = line.text.split(urlRegex);
                 const matches = line.text.match(urlRegex);
                 if (!matches) {
@@ -107,10 +107,12 @@ export const CodeBlock = ({ code, executionNumber, onExecute, className, indicat
                 for (let i = 0; i < parts.length; i++) {
                   if (i > 0 && matches && matches[i - 1]) {
                     const token = matches[i - 1];
-                    const href = token.includes("@") ? `mailto:${token}` : (token.startsWith("http") ? token : `https://${token}`);
+                    const isMailto = token.startsWith("mailto:");
+                    const display = isMailto ? token.replace(/^mailto:/, "") : token;
+                    const href = isMailto ? token : (token.includes("@") ? `mailto:${token}` : (token.startsWith("http") ? token : `https://${token}`));
                     rendered.push(
-                      <a key={`l-${idx}-${i}`} href={href} target={token.includes("@") ? undefined : "_blank"} rel={token.includes("@") ? undefined : "noopener noreferrer"} className="code-string underline">
-                        {token}
+                      <a key={`l-${idx}-${i}`} href={href} target={(token.includes("@") || isMailto) ? undefined : "_blank"} rel={(token.includes("@") || isMailto) ? undefined : "noopener noreferrer"} className="code-string underline">
+                        {display}
                       </a>
                     );
                   }

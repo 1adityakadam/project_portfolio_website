@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Github, ChevronDown, ChevronUp } from "lucide-react"
+import { InteractiveTitle } from "@/components/InteractiveTitle"
 import { useMemo, useState } from "react"
 import { CodeBlock } from "@/components/CodeBlock"
 
@@ -91,7 +92,7 @@ export function Projects() {
       <div className="max-w-7xl mx-auto">
         {/* Text cell - Section heading */}
         <div className="colab-text-cell mb-4">
-          <h2 className="text-3xl font-bold">Featured Projects</h2>
+          <InteractiveTitle text="Featured Projects" />
         </div>
 
         {/* Sliding Projects Container */}
