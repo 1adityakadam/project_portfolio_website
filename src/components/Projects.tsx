@@ -1,7 +1,8 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Github, ChevronDown, ChevronUp } from "lucide-react"
-import { useState } from "react"
+import { useMemo, useState } from "react"
+import { CodeBlock } from "@/components/CodeBlock"
 
 export function Projects() {
   const [showAll, setShowAll] = useState(false)
@@ -80,6 +81,11 @@ export function Projects() {
     }
   ]
 
+  // Build a compact code-like string used in slider cards
+  const buildProjectSnippet = (p: typeof projects[number]) => {
+    return `# ${p.title}\n'''\n  ${p.description}\n'''\n# Tech: ${p.technologies.slice(0, 4).join(', ')}`
+  }
+
   return (
     <section id="projects" className="py-12 px-4">
       <div className="max-w-7xl mx-auto">
@@ -106,39 +112,19 @@ export function Projects() {
                     if (parent) parent.style.animationPlayState = 'running';
                   }}
                 >
-                  <div className="space-y-3">
-                    <div className="code-comment text-lg font-bold">
-                      # {project.title}
+                  <CodeBlock
+                    code={buildProjectSnippet(project)}
+                    executionNumber={index + 1}
+                    onExecute={() => {}}
+                  />
+                  {project.github && (
+                    <div className="mt-2">
+                      <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline text-sm flex items-center gap-2">
+                        <Github className="w-4 h-4" />
+                        View on GitHub
+                      </a>
                     </div>
-                    <div className="code-string">
-                      '''
-                    </div>
-                    <div className="pl-4 code-string text-sm">
-                      {project.description}
-                    </div>
-                    <div className="code-string">
-                      '''
-                    </div>
-                    <div className="flex flex-wrap items-center gap-2 mt-3">
-                      <span className="code-comment whitespace-nowrap"># Tech:</span>
-                      {project.technologies.slice(0, 4).map((tech, idx) => {
-                        const isLast = idx >= Math.min(project.technologies.length, 4) - 1;
-                        return (
-                          <span key={idx} className="text-foreground text-xs">
-                            {tech}{!isLast ? "," : ""}
-                          </span>
-                        );
-                      })}
-                    </div>
-                    {project.github && (
-                      <div className="mt-2">
-                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline text-sm flex items-center gap-2">
-                          <Github className="w-4 h-4" />
-                          View on GitHub
-                        </a>
-                      </div>
-                    )}
-                  </div>
+                  )}
                 </div>
               ))}
               {/* Duplicate set for seamless loop */}
@@ -155,39 +141,19 @@ export function Projects() {
                     if (parent) parent.style.animationPlayState = 'running';
                   }}
                 >
-                  <div className="space-y-3">
-                    <div className="code-comment text-lg font-bold">
-                      # {project.title}
+                  <CodeBlock
+                    code={buildProjectSnippet(project)}
+                    executionNumber={index + 1}
+                    onExecute={() => {}}
+                  />
+                  {project.github && (
+                    <div className="mt-2">
+                      <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline text-sm flex items-center gap-2">
+                        <Github className="w-4 h-4" />
+                        View on GitHub
+                      </a>
                     </div>
-                    <div className="code-string">
-                      '''
-                    </div>
-                    <div className="pl-4 code-string text-sm">
-                      {project.description}
-                    </div>
-                    <div className="code-string">
-                      '''
-                    </div>
-                    <div className="flex flex-wrap items-center gap-2 mt-3">
-                      <span className="code-comment whitespace-nowrap"># Tech:</span>
-                      {project.technologies.slice(0, 4).map((tech, idx) => {
-                        const isLast = idx >= Math.min(project.technologies.length, 4) - 1;
-                        return (
-                          <span key={idx} className="text-foreground text-xs">
-                            {tech}{!isLast ? "," : ""}
-                          </span>
-                        );
-                      })}
-                    </div>
-                    {project.github && (
-                      <div className="mt-2">
-                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline text-sm flex items-center gap-2">
-                          <Github className="w-4 h-4" />
-                          View on GitHub
-                        </a>
-                      </div>
-                    )}
-                  </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -224,41 +190,19 @@ export function Projects() {
           <div className="space-y-4 animate-fade-in">
             {projects.map((project, index) => (
               <div key={`static-${index}`} className="colab-code-cell ml-12">
-                <div className="space-y-3">
-                  <div className="code-comment text-lg font-bold">
-                    # {project.title}
+                <CodeBlock
+                  code={`# ${project.title}${project.period ? `\n# Period: ${project.period}` : ''}\n'''\n  ${project.description}\n'''\n# Technologies: ${project.technologies.join(' | ')}`}
+                  executionNumber={index + 1}
+                  onExecute={() => {}}
+                />
+                {project.github && (
+                  <div className="mt-3">
+                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline flex items-center gap-2">
+                      <Github className="w-5 h-5" />
+                      View Repository
+                    </a>
                   </div>
-                  {project.period && (
-                    <div className="code-comment text-sm">
-                      # Period: {project.period}
-                    </div>
-                  )}
-                  <div className="code-string">
-                    '''
-                  </div>
-                  <div className="pl-4 code-string">
-                    {project.description}
-                  </div>
-                  <div className="code-string">
-                    '''
-                  </div>
-                  <div className="flex flex-wrap gap-2 mt-3">
-                    <span className="code-comment"># Technologies:</span>
-                    {project.technologies.map((tech, idx) => (
-                      <span key={idx} className="text-foreground text-sm">
-                        {tech}{idx < project.technologies.length - 1 ? " |" : ""}
-                      </span>
-                    ))}
-                  </div>
-                  {project.github && (
-                    <div className="mt-3">
-                      <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline flex items-center gap-2">
-                        <Github className="w-5 h-5" />
-                        View Repository
-                      </a>
-                    </div>
-                  )}
-                </div>
+                )}
               </div>
             ))}
           </div>

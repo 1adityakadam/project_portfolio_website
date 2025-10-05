@@ -37,6 +37,10 @@
 
     --radius: 0.5rem;
 
+    /* CodeBlock additions */
+    --success: 140 70% 40%;
+    --success-foreground: 0 0% 100%;
+
     /* Colab-specific colors */
     --colab-text-cell: 0 0% 100%;
     --colab-code-cell: 240 10% 98%;

@@ -58,7 +58,7 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
+					sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
 					primary: 'hsl(var(--sidebar-primary))',
@@ -67,7 +67,11 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+					},
+					success: {
+						DEFAULT: 'hsl(var(--success))',
+						foreground: 'hsl(var(--success-foreground))'
+					}
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -91,7 +95,7 @@ export default {
 						height: '0'
 					}
 				},
-				'slide-right': {
+					'slide-right': {
 					'0%': { transform: 'translateX(0)' },
 					'100%': { transform: 'translateX(-50%)' }
 				}
@@ -99,7 +103,8 @@ export default {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'slide-right': 'slide-right 60s linear infinite'
+					'slide-right': 'slide-right 60s linear infinite',
+					'spin-slow': 'spin-slow 2s linear infinite'
 			}
 		}
 	},
