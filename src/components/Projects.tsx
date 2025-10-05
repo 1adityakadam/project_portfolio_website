@@ -14,6 +14,7 @@ export function Projects() {
       description: "A concise, interactive tool for exploring the historical lineage of U.S. higher education institutions using Carnegie Classification data from 1973–2021.",
       technologies: ["Python", "Pandas", "Interactive Dashboards", "Data Visualization", "Carnegie Classification"],
       github: "https://github.com/1adityakadam/Carnegie-classifications-ancestry-grid",
+      image: "/lovable-uploads/c0b3cfa2-690d-4800-ac8a-0162be93af29.png",
     },
     {
       title: "USDA Food Distribution Program Analysis",
@@ -21,6 +22,7 @@ export function Projects() {
       technologies: ["Python", "Tableau", "Pandas", "Data Visualization", "USDA APIs"],
       period: "FY11 - FY23",
       github: "https://github.com/1adityakadam/USDA_food_distribution_analysis",
+      image: "/lovable-uploads/c5629d05-81cb-416b-b75d-50008bfac0b1.png",
     },
     {
       title: "Uber Data Analytics End-to-End Project",
@@ -28,6 +30,7 @@ export function Projects() {
       technologies: ["Python", "Mage-AI", "Google BigQuery", "Google Looker Studio", "Google Cloud Storage", "Pandas", "NumPy"],
       period: "Nov 2024",
       github: "https://github.com/1adityakadam/Uber_data_analytics",
+      image: "/lovable-uploads/ef29be68-9fb4-4c32-aa90-34cad5f4e864.png",
     },
     {
       title: "IndyGo On-Time Performance Analysis",
@@ -35,6 +38,7 @@ export function Projects() {
       technologies: ["Power BI", "Python", "GPS Data Integration", "APC Systems", "Data Analytics"],
       period: "12-month analysis",
       github: "https://github.com/1adityakadam/Indygo_OTP_analysis",
+      image: "/lovable-uploads/03bc8d04-9fea-4cf3-8a55-0b284c26dc68.png",
     },
     {
       title: "Sports Analytics: Cricket Data Insights",
@@ -42,6 +46,7 @@ export function Projects() {
       technologies: ["Power BI", "Python", "Pandas", "BrightData", "Web Scraping", "JSON Processing", "Power Query", "DAX"],
       period: "T20 World Cup 2022",
       github: "https://github.com/1adityakadam/Sports_Analytics_Cricket_Data_Insights",
+      image: "/lovable-uploads/b7cc5e19-b229-483c-8f53-e52201f72fbb.png",
     },
     {
       title: "Air Pollution Forecasting using LSTM",
@@ -49,36 +54,42 @@ export function Projects() {
       technologies: ["Python", "LSTM", "TensorFlow", "Keras", "Pandas", "Time Series Analysis"],
       period: "5-year dataset",
       github: "https://github.com/1adityakadam/Air-Pollution-Forecasting",
+      image: "/lovable-uploads/air-pollution.png",
     },
     {
       title: "Content-Based Movie Recommender System",
       description: "End-to-end movie recommendation system using content-based filtering with NLP techniques and live poster fetching via TMDb API.",
       technologies: ["Python", "Streamlit", "NLP", "scikit-learn", "NLTK", "TMDb API", "Heroku"],
       github: "https://github.com/1adityakadam/Content-Based-Movie-Recommender-System",
+      image: "/lovable-uploads/movie-recommender.png",
     },
     {
       title: "Multi-Model Car Acceptability Classification",
       description: "Car acceptability classification using multiple machine learning models including Multinomial Linear Regression, SVM, Random Forest, and Ensemble methods.",
       technologies: ["Python", "scikit-learn", "Random Forest", "SVM", "Ensemble Methods", "Pandas"],
       github: "https://github.com/1adityakadam/Multi-Model-Car-Acceptability-Classification",
+      image: "/lovable-uploads/car-classification.png",
     },
     {
       title: "Netflix Data Analysis with DBT & Snowflake",
       description: "End-to-end ELT pipeline using Amazon S3, Snowflake, and dbt for MovieLens dataset analytics with BI dashboard integration.",
       technologies: ["dbt", "Snowflake", "Amazon S3", "SQL", "Looker Studio", "Power BI", "Tableau"],
       github: "https://github.com/1adityakadam/Netflix_data_analysis",
+      image: "/lovable-uploads/netflix-analysis.png",
     },
     {
       title: "Air Quality Index Prediction using LSTM",
       description: "Univariate LSTM model for predicting PM2.5 levels as AQI proxy using 4 years of hourly air quality data from China.",
       technologies: ["Python", "LSTM", "Keras", "Time Series", "Data Visualization"],
       github: "https://github.com/1adityakadam/Predicting-Air-quality-index-using-LSTM",
+      image: "/lovable-uploads/air-quality.png",
     },
     {
       title: "Tweet Classification using NLP Techniques",
       description: "Binary classification of disaster-related tweets using multiple NLP approaches including TF-IDF, Word2Vec, and ensemble methods.",
       technologies: ["Python", "NLTK", "scikit-learn", "XGBoost", "Word2Vec", "CountVectorizer"],
       github: "https://github.com/1adityakadam/Tweet-Classification-using-NLP-Techniques",
+      image: "/lovable-uploads/twitter-sentiment.png",
     }
   ]
 
@@ -113,6 +124,11 @@ export function Projects() {
                     if (parent) parent.style.animationPlayState = 'running';
                   }}
                 >
+                  {project.image && (
+                    <div className="mb-2">
+                      <img src={project.image} alt={project.title} className="w-full h-40 object-cover rounded" />
+                    </div>
+                  )}
                   <CodeBlock
                     className="colab-code-cell ml-12 w-[450px] flex gap-4 group"
                     code={buildProjectSnippet(project)}
@@ -147,6 +163,11 @@ export function Projects() {
                     if (parent) parent.style.animationPlayState = 'running';
                   }}
                 >
+                  {project.image && (
+                    <div className="mb-2">
+                      <img src={project.image} alt={project.title} className="w-full h-40 object-cover rounded" />
+                    </div>
+                  )}
                   <CodeBlock
                     className="colab-code-cell ml-12 w-[450px] flex gap-4 group"
                     code={buildProjectSnippet(project)}
@@ -201,6 +222,11 @@ export function Projects() {
           <div className="space-y-4 animate-fade-in">
             {projects.map((project, index) => (
               <div key={`static-${index}`} className="colab-code-cell ml-12 relative">
+                {project.image && (
+                  <div className="mb-2">
+                    <img src={project.image} alt={project.title} className="w-full h-52 object-cover rounded" />
+                  </div>
+                )}
                 <CodeBlock
                   code={`# ${project.title}${project.period ? `\n# Period: ${project.period}` : ''}\n'''\n  ${project.description}\n'''\n# Technologies: ${project.technologies.join(' | ')}`}
                   executionNumber={index + 1}
