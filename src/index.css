@@ -45,7 +45,7 @@
     --colab-text-cell: 0 0% 100%;
     --colab-code-cell: 240 10% 98%;
     --colab-comment: 140 40% 45%;
-    --colab-string: 35 100% 55%;
+    --colab-string: 35 100% 45%;
     --colab-border: 220 10% 90%;
 
     --sidebar-background: 0 0% 98%;
@@ -122,6 +122,10 @@
 
 /* Utility classes */
 @layer components {
+  /* Leave space under fixed header when scrolling to anchors */
+  .anchor-offset {
+    scroll-margin-top: 96px; /* header height + ~5mm (~19px) gap */
+  }
   .colab-text-cell {
     background: hsl(var(--colab-text-cell));
     border: 1px solid hsl(var(--colab-border));

@@ -55,23 +55,24 @@ export const CodeBlock = ({ code, executionNumber, onExecute, className }: CodeB
   }, [code]);
 
   return (
-    <div className={className ? className : "flex gap-4 group"}>
-      {/* Left sidebar inside the code cell */}
-      <div className="flex flex-col items-center gap-2 pt-3">
-        <div className="text-muted-foreground font-mono text-sm min-w-[40px] text-center">
-          {state === "completed" ? (
-            <div className="flex flex-col items-center gap-1">
-              <div className="flex items-center gap-1 text-success">
-                <Check className="w-4 h-4" />
-                <span className="text-xs">0s</span>
-              </div>
-              <span className="text-foreground">[{executionNumber}]</span>
+    <div className={(className ? className : "flex gap-4 group") + " relative"}>
+      {/* Indicator outside to the left of the code cell */}
+      <div className="absolute -left-12 top-2 text-muted-foreground font-mono text-sm min-w-[40px] text-center">
+        {state === "completed" ? (
+          <div className="flex flex-col items-center gap-1">
+            <div className="flex items-center gap-1 text-success">
+              <Check className="w-4 h-4" />
+              <span className="text-xs">0s</span>
             </div>
-          ) : (
-            <span>[{state === "idle" ? " " : executionNumber}]</span>
-          )}
-        </div>
+            <span className="text-foreground">[{executionNumber}]</span>
+          </div>
+        ) : (
+          <span>[{state === "idle" ? " " : executionNumber}]</span>
+        )}
+      </div>
 
+      {/* Left sidebar inside the code cell: play button only */}
+      <div className="flex flex-col items-center gap-2 pt-3">
         {state !== "completed" && (
           <button onClick={handleClick} disabled={state !== "idle"} className="relative group/btn">
             <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center transition-all hover:bg-secondary">
@@ -94,8 +95,8 @@ export const CodeBlock = ({ code, executionNumber, onExecute, className }: CodeB
           <code className="text-sm font-mono text-foreground whitespace-pre-wrap break-words">
             {parsedLines.map((line, idx) => {
               if (line.className === "code-string") {
-                // Linkify URLs while keeping orange color
-                const urlRegex = /(https?:\/\/[^\s]+|www\.[^\s]+|github\.com\/[^\s]+)/g;
+                // Linkify URLs and emails while keeping orange color
+                const urlRegex = /(https?:\/\/[^\s]+|www\.[^\s]+|github\.com\/[^\s]+|[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g;
                 const parts = line.text.split(urlRegex);
                 const matches = line.text.match(urlRegex);
                 if (!matches) {
@@ -104,10 +105,11 @@ export const CodeBlock = ({ code, executionNumber, onExecute, className }: CodeB
                 const rendered: React.ReactNode[] = [];
                 for (let i = 0; i < parts.length; i++) {
                   if (i > 0 && matches && matches[i - 1]) {
-                    const href = matches[i - 1].startsWith("http") ? matches[i - 1] : `https://${matches[i - 1]}`;
+                    const token = matches[i - 1];
+                    const href = token.includes("@") ? `mailto:${token}` : (token.startsWith("http") ? token : `https://${token}`);
                     rendered.push(
-                      <a key={`l-${idx}-${i}`} href={href} target="_blank" rel="noopener noreferrer" className="code-string underline">
-                        {matches[i - 1]}
+                      <a key={`l-${idx}-${i}`} href={href} target={token.includes("@") ? undefined : "_blank"} rel={token.includes("@") ? undefined : "noopener noreferrer"} className="code-string underline">
+                        {token}
                       </a>
                     );
                   }

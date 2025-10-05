@@ -45,7 +45,7 @@ export function Experience() {
   ]
 
   return (
-    <section id="experience" className="py-12 px-4">
+    <section id="experience" className="py-12 px-4 anchor-offset">
       <div className="max-w-7xl mx-auto">
         {/* Text cell - Section heading */}
         <div className="colab-text-cell mb-4">

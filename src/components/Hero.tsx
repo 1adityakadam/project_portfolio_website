@@ -4,7 +4,7 @@ export function Hero() {
   return (
     <section 
       id="hero"
-      className="min-h-screen flex flex-col px-4 py-8"
+      className="min-h-screen flex flex-col px-4 py-8 anchor-offset"
     >
       {/* Colab-style header */}
       <div className="max-w-7xl mx-auto w-full mb-8">
