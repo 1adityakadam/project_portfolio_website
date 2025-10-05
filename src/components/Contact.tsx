@@ -14,7 +14,7 @@ export function Contact() {
 
         {/* Code cell - Contact information */}
         {(() => {
-          const code = `# Contact Information\n'''\n  Email: \n  LinkedIn: \n  GitHub: \n'''`
+          const code = `# Contact Information\n'''\n  Email: askadam.iu.edu\n  LinkedIn: www.linkedin.com/in/1adityakadam\n  GitHub: github.com/1adityakadam\n'''`
           return (
             <CodeBlock
               className="colab-code-cell ml-12 flex gap-4 group"
@@ -26,12 +26,7 @@ export function Contact() {
         })()}
       </div>
 
-      {/* Hidden accessible links for Let's Connect (clickable without showing plain text) */}
-      <div className="sr-only">
-        <a href="mailto:askadam@iu.edu">askadam@iu.edu</a>
-        <a href="https://www.linkedin.com/in/1adityakadam" target="_blank" rel="noopener noreferrer">www.linkedin.com/in/1adityakadam</a>
-        <a href="https://github.com/1adityakadam" target="_blank" rel="noopener noreferrer">github.com/1adityakadam</a>
-      </div>
+      
     </section>
   )
 }

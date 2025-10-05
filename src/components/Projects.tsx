@@ -47,7 +47,7 @@ export function Projects() {
       description: "An LSTM neural network model to predict PM2.5 pollution levels in the next hour using weather conditions and current pollution levels.",
       technologies: ["Python", "LSTM", "TensorFlow", "Keras", "Pandas", "Time Series Analysis"],
       period: "5-year dataset",
-      github: "https://github.com/jyoti0225/Air-Pollution-Forecasting",
+      github: "https://github.com/1adityakadam/Air-Pollution-Forecasting",
     },
     {
       title: "Content-Based Movie Recommender System",
@@ -71,7 +71,7 @@ export function Projects() {
       title: "Air Quality Index Prediction using LSTM",
       description: "Univariate LSTM model for predicting PM2.5 levels as AQI proxy using 4 years of hourly air quality data from China.",
       technologies: ["Python", "LSTM", "Keras", "Time Series", "Data Visualization"],
-      github: "https://github.com/jyoti0225/Air-Quality-Index-Prediction-using-LSTM",
+      github: "https://github.com/1adityakadam/Predicting-Air-quality-index-using-LSTM",
     },
     {
       title: "Tweet Classification using NLP Techniques",
