@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Play, Square, Check } from "lucide-react";
 
 interface CodeBlockProps {
@@ -25,6 +25,34 @@ export const CodeBlock = ({ code, executionNumber, onExecute, className }: CodeB
       }, 500);
     }, 1000);
   };
+
+  const parsedLines = useMemo(() => {
+    const lines = code.split("\n");
+    const result: { text: string; className?: string }[] = [];
+    let inDocstring = false;
+
+    for (const line of lines) {
+      const trimmed = line.trim();
+      const isFence = trimmed === "'''";
+
+      if (isFence) {
+        // Render the fence line in docstring color and toggle state
+        result.push({ text: line, className: "code-string" });
+        inDocstring = !inDocstring;
+        continue;
+      }
+
+      if (!inDocstring && trimmed.startsWith("#")) {
+        result.push({ text: line, className: "code-comment" });
+      } else if (inDocstring) {
+        result.push({ text: line, className: "code-string" });
+      } else {
+        result.push({ text: line });
+      }
+    }
+
+    return result;
+  }, [code]);
 
   return (
     <div className={className ? className : "flex gap-4 group"}>
@@ -60,9 +88,13 @@ export const CodeBlock = ({ code, executionNumber, onExecute, className }: CodeB
         )}
       </div>
 
-      <div className="flex-1 rounded-lg bg-card border border-border overflow-hidden">
-        <pre className="p-4 overflow-x-auto">
-          <code className="text-sm font-mono text-foreground whitespace-pre">{code}</code>
+      <div className="flex-1">
+        <pre className="m-0">
+          <code className="text-sm font-mono text-foreground whitespace-pre-wrap break-words">
+            {parsedLines.map((line, idx) => (
+              <span key={idx} className={line.className}>{line.text}{idx < parsedLines.length - 1 ? "\n" : ""}</span>
+            ))}
+          </code>
         </pre>
       </div>
     </div>

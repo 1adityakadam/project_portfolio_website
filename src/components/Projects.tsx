@@ -102,7 +102,7 @@ export function Projects() {
               {projects.slice(0, 6).map((project, index) => (
                 <div 
                   key={`first-${index}`} 
-                  className="colab-code-cell w-[450px] flex-shrink-0"
+                  className="flex-shrink-0"
                   onMouseEnter={(e) => {
                     const parent = e.currentTarget.parentElement;
                     if (parent) parent.style.animationPlayState = 'paused';
@@ -113,6 +113,7 @@ export function Projects() {
                   }}
                 >
                   <CodeBlock
+                    className="colab-code-cell ml-12 w-[450px] flex gap-4 group"
                     code={buildProjectSnippet(project)}
                     executionNumber={index + 1}
                     onExecute={() => {}}
@@ -131,7 +132,7 @@ export function Projects() {
               {projects.slice(0, 6).map((project, index) => (
                 <div 
                   key={`second-${index}`} 
-                  className="colab-code-cell w-[450px] flex-shrink-0"
+                  className="flex-shrink-0"
                   onMouseEnter={(e) => {
                     const parent = e.currentTarget.parentElement;
                     if (parent) parent.style.animationPlayState = 'paused';
@@ -142,6 +143,7 @@ export function Projects() {
                   }}
                 >
                   <CodeBlock
+                    className="colab-code-cell ml-12 w-[450px] flex gap-4 group"
                     code={buildProjectSnippet(project)}
                     executionNumber={index + 1}
                     onExecute={() => {}}
