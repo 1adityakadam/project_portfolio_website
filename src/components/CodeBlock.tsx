@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { Fragment, useMemo, useState } from "react";
 import { Play, Square, Check } from "lucide-react";
 
 interface CodeBlockProps {
@@ -55,9 +55,9 @@ export const CodeBlock = ({ code, executionNumber, onExecute, className }: CodeB
   }, [code]);
 
   return (
-    <div className={className ? className : "flex gap-4 group relative"}>
-      {/* External execution indicator positioned where the old [ ] lived */}
-      <div className="absolute -left-12 top-2 text-muted-foreground font-mono text-sm min-w-[40px] text-center">
+    <div className={className ? className : "flex gap-4 group"}>
+      {/* Left sidebar inside the code cell */}
+      <div className="flex flex-col items-center gap-2 pt-3">
         <div className="text-muted-foreground font-mono text-sm min-w-[40px] text-center">
           {state === "completed" ? (
             <div className="flex flex-col items-center gap-1">
@@ -72,9 +72,8 @@ export const CodeBlock = ({ code, executionNumber, onExecute, className }: CodeB
           )}
         </div>
 
-        {/* Keep play button at the same spot next to the execution indicator */}
         {state !== "completed" && (
-          <button onClick={handleClick} disabled={state !== "idle"} className="relative group/btn ml-2">
+          <button onClick={handleClick} disabled={state !== "idle"} className="relative group/btn">
             <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center transition-all hover:bg-secondary">
               {state === "idle" && <Play className="w-5 h-5 text-muted-foreground fill-current pl-0.5" />}
               {state === "playing" && <Play className="w-5 h-5 text-accent fill-current pl-0.5" />}
@@ -93,9 +92,33 @@ export const CodeBlock = ({ code, executionNumber, onExecute, className }: CodeB
       <div className="flex-1">
         <pre className="m-0">
           <code className="text-sm font-mono text-foreground whitespace-pre-wrap break-words">
-            {parsedLines.map((line, idx) => (
-              <span key={idx} className={line.className}>{line.text}{idx < parsedLines.length - 1 ? "\n" : ""}</span>
-            ))}
+            {parsedLines.map((line, idx) => {
+              if (line.className === "code-string") {
+                // Linkify URLs while keeping orange color
+                const urlRegex = /(https?:\/\/[^\s]+|www\.[^\s]+|github\.com\/[^\s]+)/g;
+                const parts = line.text.split(urlRegex);
+                const matches = line.text.match(urlRegex);
+                if (!matches) {
+                  return <span key={idx} className={line.className}>{line.text}{idx < parsedLines.length - 1 ? "\n" : ""}</span>;
+                }
+                const rendered: React.ReactNode[] = [];
+                for (let i = 0; i < parts.length; i++) {
+                  if (i > 0 && matches && matches[i - 1]) {
+                    const href = matches[i - 1].startsWith("http") ? matches[i - 1] : `https://${matches[i - 1]}`;
+                    rendered.push(
+                      <a key={`l-${idx}-${i}`} href={href} target="_blank" rel="noopener noreferrer" className="code-string underline">
+                        {matches[i - 1]}
+                      </a>
+                    );
+                  }
+                  if (parts[i]) {
+                    rendered.push(<Fragment key={`t-${idx}-${i}`}>{parts[i]}</Fragment>);
+                  }
+                }
+                return <span key={idx} className={line.className}>{rendered}{idx < parsedLines.length - 1 ? "\n" : ""}</span>;
+              }
+              return <span key={idx} className={line.className}>{line.text}{idx < parsedLines.length - 1 ? "\n" : ""}</span>;
+            })}
           </code>
         </pre>
       </div>

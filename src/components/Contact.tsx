@@ -14,7 +14,7 @@ export function Contact() {
 
         {/* Code cell - Contact information */}
         {(() => {
-          const code = `# Contact Information\n'''\n  Email: askadam@iu.edu\n  LinkedIn: /in/1adityakadam\n  GitHub: /1adityakadam\n'''`
+          const code = `# Contact Information\n'''\n  Email: askadam@iu.edu\n  LinkedIn: www.linkedin.com/in/1adityakadam/\n  GitHub: github.com/1adityakadam\n'''`
           return (
             <CodeBlock
               className="colab-code-cell ml-12 flex gap-4 group"
